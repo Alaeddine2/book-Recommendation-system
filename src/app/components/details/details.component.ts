@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsComponent implements OnInit {
 
   constructor() { }
-
+  rate = 3;
+  ratingNb = 1555;
   ngOnInit(): void {
   }
 

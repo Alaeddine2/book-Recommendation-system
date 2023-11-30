@@ -12,11 +12,12 @@ import { DetailsComponent } from './components/details/details.component';
     AppComponent,
     HomeComponent,
     AllProductComponent,
-    DetailsComponent
+    DetailsComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
