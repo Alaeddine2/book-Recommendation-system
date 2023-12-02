@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AllProductComponent } from './components/all-product/all-product.component';
 import { DetailsComponent } from './components/details/details.component';
+import { BookReaderComponent } from './components/book-reader/book-reader.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { DetailsComponent } from './components/details/details.component';
     HomeComponent,
     AllProductComponent,
     DetailsComponent,
+    BookReaderComponent,
 
   ],
   imports: [

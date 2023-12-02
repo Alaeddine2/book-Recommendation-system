@@ -1858,3 +1858,24 @@ footer#footer {
     width: 100%;
   }
 }
+.Profile{
+  display: flex;
+  align-items: center;
+  background-color: #efeee8;
+}
+
+.profile-image{
+  width: 70px;
+  height: 70px;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.3);
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.gray-text{
+  font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+    color: #999999;
+}
