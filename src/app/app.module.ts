@@ -9,6 +9,8 @@ import { DetailsComponent } from './components/details/details.component';
 import { BookReaderComponent } from './components/book-reader/book-reader.component';
 // import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     BrowserModule,
     AppRoutingModule,
     // PdfViewerModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    MdbCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
