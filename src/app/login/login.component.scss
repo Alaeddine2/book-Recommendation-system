@@ -1,0 +1,197 @@
+/* Use the custom font in your component */
+.example-text {
+  font-family: 'Google', sans-serif;
+}
+
+.example-text-medium {
+  font-family: 'GoogleM', sans-serif;
+}
+
+#logo {
+  width:100px;
+  display:flex;
+  padding:50px 0px 40px 0px;
+  margin-left:auto;
+  margin-right:auto;
+  fill:#74642F;
+}
+#options {
+  height:50px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+#options span {
+  font-weight:600;
+  font-size:1.1em;
+  letter-spacing:1px;
+  width:49.9999%;
+  text-align:center;
+  transition:0.2s linear color;
+}
+
+#content #logindiv, #content #registerDiv {
+  min-height:100px;
+  width:100%;
+  margin-top:20px;
+  padding-bottom:0px;
+}
+#content #registerDiv {
+  display:none;
+}
+#content #logindiv p,
+#content #registerDiv p
+{
+  padding:10px 10% 0px 10%;
+  font-size:0.8em;
+  color:#666;
+  font-family:GoogleM;
+}
+
+#content #logindiv input[type=text],
+#content #logindiv input[type=email],
+#content #logindiv input[type=password],
+#content #registerDiv  input[type=text],
+#content #registerDiv input[type=password],
+#content #registerDiv input[type=number],
+#content #registerDiv input[type=email]
+{
+  font-size:1em;
+  font-weight:500;
+  font-family: GoogleM;
+  padding:10px 0px;
+  border:none; outline:none;
+  border-bottom:2px solid black;
+  margin-bottom:15px;
+  background:transparent;
+}
+#content #logindiv #password,
+#content #registerDiv #password
+{
+  padding:10px 45px 10px 0px;
+}
+#content #logindiv #eye,
+#content #registerDiv #eye
+{
+  height:calc(1em + 20px);
+  position:absolute;
+  right:10%; width:40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+#content #logindiv #eye #eyeoff,
+#content #logindiv #eye #eyeon,
+#content #registerDiv #eye #eyeoff,
+#content #registerDiv #eye #eyeon
+{
+  width:23px;
+}
+#content #logindiv #eye #eyeon,
+#content #registerDiv #eye #eyeon{
+  display:none;
+  width:25px;
+}
+#content input[type=submit]{
+  border:none;
+  outline:none;
+  background: #74642F;
+  color:white;
+  font-size:1.1em;
+  font-family:GoogleM;
+  padding:12px;
+  margin-top:40px;
+  letter-spacing:2px;
+  border-radius:5px;
+  font-weight:600;
+  box-shadow:0px 5px 5px rgba(0,0,255,0.15);
+  transition:0.1s linear transform, 0.2s linear opacity;
+  margin-bottom:50px;
+}
+#content #submit:active  {
+  transform:scale(0.95);
+}
+#horizontaltxt {
+  width: 80%;
+  text-align: center;
+  border-bottom: 1px solid #aaa;
+  line-height: 1px;
+  margin: 0px 10% 50px;
+}
+
+#horizontaltxt  span {
+  background:var(--mnThCl);
+  padding:0 5px;
+  color:#aaa;
+}
+#content #logindiv #endDiv{
+  height:60px;
+  width:100%;
+  display:flex;
+  justify-content:space-evenly;
+  align-items:center;
+}
+#content #logindiv #endDiv div{
+  width:40%;
+  height:50px;
+  box-shadow:3px 3px 10px rgba(0,0,0,0.1);
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  font-size:1em;
+  font-weight:500;
+  font-family: GoogleM;
+  border-radius:5px;
+  transition:0.1s linear transform;
+}
+#content #logindiv #endDiv div:active,
+#content #registerDiv #endDiv div:active
+{
+  transform:scale(0.95);
+}
+#content #logindiv #endDiv div span,
+#content #registerDiv #endDiv div span
+{
+  padding:20px;
+}
+#content #logindiv #endDiv div svg,
+#content #registerDiv #endDiv div svg{
+  height:25px;
+}
+#content #logindiv #endDiv #facebook  svg,
+#content #registerDiv #endDiv #facebook svg
+{
+  height:33px;
+}
+#content input{
+  width:80%;
+  margin-left:10%;
+}
+::placeholder{
+  color:#aaa;
+}
+#content {
+  width:100vw;
+  max-width:600px;
+  display:flex;
+  margin-left:auto;
+  margin-right:auto;
+  flex-direction: column;
+}
+#dialogue {
+  text-align:center;
+  font-size:1.5em;
+  padding:60px;
+  text-transform:capitalize;
+}
+
+/*///////RESPONSIVE*/
+@media only screen and (min-width: 600px) {
+  #content #logindiv #eye {
+    right:calc(50% - 240px);
+  }
+  #content #registerDiv #eye {
+    right:calc(50% - 240px);
+  }
+}
