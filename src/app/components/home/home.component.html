@@ -65,53 +65,59 @@
 
       </div>
     </div>
-  <div class="carousel-inner rounded-5 shadow-4-strong">
-  <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
-    <mdb-carousel-item>
-      <div class="slider_block" >
-      <div class="slider_left">
-        <h1>Life Of The Wild</h1>
-        <p class="userNameId">We see Jesus, we believe in Jesus and we wait for Jesus, yet still we suffer. This book offers real and rugged answers in life’s dark places. Discover how to live with hope in a fallen, messed- up, "wild" world, and be encouraged.</p>
-        <button class="button" type="button" name="button" style="    background-color: #f3f2ec; ">Read more <img src="./img/arrow-read.svg" alt=""></button>
+  <div >
+  <div style="display: flex;">
+    <div class="slider-arrow_left" style="margin-left: 10px; align-self: center;" (click)="goToPrevSlide()"><img src="assets/img/arrow-left.svg" alt=""></div>
+    <mdb-carousel [controls]="false" [indicators]="false"  [animation]="'fade'"  #carouselEl style="width: 100%;margin-left: 20px; margin-right: 20px;">
+      <mdb-carousel-item>
+        <div class="slider_block" >
+        <div class="slider_left">
+          <h1>Life Of The Wild</h1>
+          <p class="userNameId">We see Jesus, we believe in Jesus and we wait for Jesus, yet still we suffer. This book offers real and rugged answers in life’s dark places. Discover how to live with hope in a fallen, messed- up, "wild" world, and be encouraged.</p>
+          <button class="button" type="button" name="button" style="    background-color: #f3f2ec; ">Read more <img src="./img/arrow-read.svg" alt=""></button>
+  
+          <div class="swiper-pagination1"></div>
+        </div>
+        <div class="slider_right">
+          <div class="bookimg b-slide_one"><div class="book-line"></div></div>
+          <div class="bgpattern"><img src="assets/img/bgpattern.png" alt=""></div>
+        </div>
+        </div>
+      </mdb-carousel-item>
+      <mdb-carousel-item>
+        <div class="slider_block" >
+        <div class="slider_left">
+          <h1>Villette</h1>
+          <p class="userNameId">Lucy Snowe, sin familia, sin dinero, sin posición, entra a trabajar en un internado en una ciudad extranjera, Villette. Sus únicas compañeras son las personificaciones que adopta su interior: la Memoria..</p>
+          <button class="button" type="button" name="button" style="    background-color: #f3f2ec; ">Read more <img src="./img/arrow-read.svg" alt=""></button>
+          <div class="swiper-pagination1"></div>
+        </div>
+        <div class="slider_right">
+          <div class="bookimg b-slide_two"><div class="book-line"></div></div>
+          <div class="bgpattern"><img src="assets/img/bgpattern.png" alt=""></div>
+        </div>
+        </div>
+      </mdb-carousel-item>
+      <mdb-carousel-item>
+        <div class="slider_block" >
+        <div class="slider_left">
+          <h1>After</h1>
+          <p class="userNameId">After is a novel by Anna Todd, published in 2014. Originally published on the Wattpad platform. Todd, inspired by the novel "50 Shades of Grey", wrote the love story of two young people: a guy and a girl who are so different that their relationship is unimaginable.</p>
+          <button class="button" type="button" name="button" style="    background-color: #f3f2ec; ">Read more <img src="./img/arrow-read.svg" alt=""></button>
+          <div class="swiper-pagination1"></div>
+        </div>
+        <div class="slider_right">
+          <div class="bookimg b-slide_three"><div class="book-line"></div></div>
+          <div class="bgpattern"><img src="assets/img/bgpattern.png" alt=""></div>
+  
+        </div>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
+    <div class="slider-arrow_right" style="margin-left: 10px; margin-right: 10px; align-self: center;" (click)="goToNextSlide()"><img src="assets/img/arrow-right.svg" alt=""></div>
 
-        <div class="swiper-pagination1"></div>
-      </div>
-      <div class="slider_right">
-        <div class="bookimg b-slide_one"><div class="book-line"></div></div>
-        <div class="bgpattern"><img src="assets/img/bgpattern.png" alt=""></div>
-      </div>
-      </div>
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <div class="slider_block" >
-      <div class="slider_left">
-        <h1>Villette</h1>
-        <p class="userNameId">Lucy Snowe, sin familia, sin dinero, sin posición, entra a trabajar en un internado en una ciudad extranjera, Villette. Sus únicas compañeras son las personificaciones que adopta su interior: la Memoria..</p>
-        <button class="button" type="button" name="button" style="    background-color: #f3f2ec; ">Read more <img src="./img/arrow-read.svg" alt=""></button>
-        <div class="swiper-pagination1"></div>
-      </div>
-      <div class="slider_right">
-        <div class="bookimg b-slide_two"><div class="book-line"></div></div>
-        <div class="bgpattern"><img src="assets/img/bgpattern.png" alt=""></div>
-      </div>
-      </div>
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <div class="slider_block" >
-      <div class="slider_left">
-        <h1>After</h1>
-        <p class="userNameId">After is a novel by Anna Todd, published in 2014. Originally published on the Wattpad platform. Todd, inspired by the novel "50 Shades of Grey", wrote the love story of two young people: a guy and a girl who are so different that their relationship is unimaginable.</p>
-        <button class="button" type="button" name="button" style="    background-color: #f3f2ec; ">Read more <img src="./img/arrow-read.svg" alt=""></button>
-        <div class="swiper-pagination1"></div>
-      </div>
-      <div class="slider_right">
-        <div class="bookimg b-slide_three"><div class="book-line"></div></div>
-        <div class="bgpattern"><img src="assets/img/bgpattern.png" alt=""></div>
-
-      </div>
-      </div>
-    </mdb-carousel-item>
-  </mdb-carousel>
+  </div>
+  
   </div>
 <!--  <div class="slider swiper animate__animated animate__fadeIn animate__delay-1s">-->
 

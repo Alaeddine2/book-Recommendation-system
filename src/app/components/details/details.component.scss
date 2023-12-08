@@ -11,3 +11,17 @@
     border-radius: 15px;
     background-color: #efeee8;
 }
+
+.more_rev{
+    margin: auto;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: solid 3px green;
+    cursor: pointer;
+}
+
+.more_rev :hover{
+    font-size: 17px;
+    border-bottom: solid 3px #efeee8;
+    cursor: pointer;
+}

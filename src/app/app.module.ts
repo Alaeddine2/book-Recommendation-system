@@ -7,11 +7,13 @@ import { HomeComponent } from './components/home/home.component';
 import { AllProductComponent } from './components/all-product/all-product.component';
 import { DetailsComponent } from './components/details/details.component';
 import { BookReaderComponent } from './components/book-reader/book-reader.component';
-// import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
+//import { PDFViewerModule } from "@progress/kendo-angular-pdfviewer";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import { ReviewsComponent } from './reviews/reviews.component';
 
 
 @NgModule({
@@ -22,15 +24,17 @@ import {ReactiveFormsModule} from "@angular/forms";
     DetailsComponent,
     BookReaderComponent,
     LoginComponent,
-
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // PdfViewerModule,
+    PdfViewerModule,
     NgxExtendedPdfViewerModule,
     MdbCarouselModule,
-    ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule
+    //PDFViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

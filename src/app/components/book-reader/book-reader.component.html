@@ -29,15 +29,18 @@
 			</div>
 		</div>
 	</div><!--top-content-->
-    <div class="container" style="margin-top: 5%;">
-        <div class="logo-left"> <div class="slider-arrow_left" routerLink="/reader"><img src="assets/img/arrow-left.svg" alt=""></div>    </div>
+    <div class="container" style="margin-top: 2%;">
         <div class="slider_right" style="margin-top: 2%; ">
-            <h1 style="text-align: center;">Birds Gonna Be Happy</h1>
+            <div>
+				<div class="slider-arrow_left" routerLink="/detail"><img src="assets/img/arrow-left.svg" alt=""></div>
+				<h1 style="text-align: center;" class="title">Birds Gonna Be Happy</h1>
+			</div>
+			
             <p class="userNameId" style="text-align: center;">We see Jesus, we believe in Jesus and we wait for Jesus, yet still we suffer. This book offers real and rugged answers in life’s dark places. Discover how to live with hope in a fallen, messed- up, "wild" world, and be encouraged.</p>
         </div>
-        <div style="margin-top: 2%; height: 800px;">
-            <div style="margin-top: 2%; height: 800px;">
-				<ngx-extended-pdf-viewer
+        <div style="margin-top: 4%; height: 800px;">
+            <div style="margin-top: 4%; height: 600px;">
+				<!-- <ngx-extended-pdf-viewer
 				  #pdfViewer
 				  [src]="'assets/books/A-Game-of-Thrones.pdf'"
 				  [useBrowserLocale]="true"
@@ -45,7 +48,12 @@
 				  [showHandToolButton]="false"
 				  [showPresentationModeButton]="false"
 				  [showDownloadButton]="false"
-				></ngx-extended-pdf-viewer>
+				></ngx-extended-pdf-viewer> -->
+				<pdf-viewer [src]="pdfSrc"
+              		[render-text]="true"
+              		[original-size]="false"
+             		style="height: 600px"
+  				></pdf-viewer>
 			  </div>						
         </div>
     </div>

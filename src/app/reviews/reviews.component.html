@@ -1,0 +1,110 @@
+<div>
+    <div class="header-side_area">
+          <div class="heder-line_area">
+    
+              <div class="heder-area_one"></div>
+    
+          </div>
+          <a href="">BOOK<span>SAW</span></a>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo possimus est laudantium qui numquam incidunt repellendus, suscipit, quam dolores autem doloremque quia explicabo tenetur. Quo voluptatum, asperiores inventore? Est, minima!</p>
+          <div class="left-area_photos">
+            <div class="area_photos_block apb-1"></div>
+            <div class="area_photos_block apb-2"></div>
+            <div class="area_photos_block apb-3"></div>
+            <div class="area_photos_block apb-4"></div>
+            <div class="area_photos_block apb-5"></div>
+            <div class="area_photos_block apb-6"></div>
+            <div class="area_photos_block apb-7"></div>
+            <div class="area_photos_block apb-8"></div>
+          </div>
+        </div>
+    
+        <div class="header-side_areamenu">
+          <div>
+          <br>
+          <a href="">Home</a> <br><br>
+          <a href="">About</a> <br><br>
+          <a href="">Pages</a> <br><br>
+          <a href="">Shop</a> <br><br>
+          <a href="">Articles</a> <br><br>
+          <a href="">Contact</a> <br><br>
+          </div>
+        </div>
+        <section>
+          <div class="topmenu container animate__animated animate__fadeIn">
+            <div class="social-left">
+              <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+              <a href=""><i class="fa-brands fa-instagram"></i></a>
+              <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href=""><i class="fa-brands fa-twitter"></i></a>
+              <a href=""><i class="fa-brands fa-blogger-b"></i></a>
+    
+            </div>
+            <div class="right-block" style="margin-left: 800px;">
+              <a class="rb_acc" href=""><i class="fa-regular fa-user"></i> ACCOUNT</a>
+              <div class="rb_verticalline"></div>
+            </div>
+          </div>
+        </section>
+    
+        <div class="header container animate__animated animate__fadeInDown">
+          <div class="logo-left"><a href="">BOOK<span>SAW</span></a></div>
+          <div class="menu-right">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">my favorites</a>
+            <a  routerLink="/all">All books</a>
+            <a href="">Contact</a>
+    
+            <span class="heder-line">
+            </span>
+    
+            <span class="heder-lineadaptive">
+    
+            </span>
+    
+          </div>
+        </div>
+        <div style="margin-top: 2%;" class="container animate__animated animate__fadeIn">
+            <div style="margin-bottom: 5%;">
+				<div class="slider-arrow_left" routerLink="/detail"><img src="assets/img/arrow-left.svg" alt=""></div>
+				<h1 style="text-align: center;" class="title">Birds Gonna Be Happy Review List</h1>
+			</div>
+            <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 30px; flex-wrap: wrap;">
+                <div *ngFor="let item of [1, 2, 3, 4, 5, 6,7,8,9,10]">
+                    <div class="box" style="width: 400px;  margin-bottom: 20px; background-color: #efeee8; padding: 1%;">
+                    <div class="Profile" style="justify-content: center;     background-color: #efeee8;">
+                        <div class="profile-image" style="background-color: #efeee8;">
+                            <img src="assets/images/team-member2.jpg">
+                        </div>
+                        
+                    </div>
+                    <div class="Profile" style="margin-top: 20px; justify-content: center; background-color: #efeee8;">
+                        <h3 class="gray-text" style="background-color: #efeee8;">John Doe</h3>
+                    </div>
+                    <div class="Profile" style="justify-content: center; background-color: #efeee8;">
+                        <span class="gray-text" style="background-color: #efeee8;">2 days ago</span>
+                    </div>
+                    <div class="Profile" style="justify-content: center; margin-top: 10px; background-color: #efeee8;">
+                        <div style="display: flex; background-color: #efeee8;">
+                            <div *ngFor="let item of [].constructor(rate);" style="margin-right: 2%; background-color: #efeee8;">
+                                <img src="assets/img/star-svgrepo-comr.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
+                            </div>
+                            <div *ngFor="let item of [].constructor(5-rate);" style="margin-right: 2%; background-color: #efeee8;">
+                                <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Profile" style="margin-top: 20px; justify-content: center">
+                        <p style="text-align: center; background-color: #efeee8;">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        </p>
+                    </div>
+                </div>
+                </div>
+                
+                
+                </div>
+        </div>
+</div>
