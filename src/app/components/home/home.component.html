@@ -179,11 +179,48 @@
 <!--  </div>-->
 
   <div class="associated animate__animated animate__fadeIn animate__delay-2s">
-    <div class="container" style="height: 150px; width: 100%;     display: flex;
+    <div class="container" style="width: 100%; display: flex; padding: 4%;
     justify-content: center;">
-        <div class="form-group">
-            <input type="text" class="form-style" placeholder="Find a book then press Enter" autocomplete="off" style="width: 350px;">
+        <div class="form-group" style="width: 100%; background-color: #edebe4;display: flex;
+        justify-content: center;">
+            <input type="text" class="form-style" [(ngModel)]="filterTxt" placeholder="Find a book then press Enter" autocomplete="off" style="width: 350px;" (keyup.enter)="basicCollapse.toggle()" [attr.aria-expanded]="!basicCollapse.collapsed">
             <i class="input-icon uil uil-at"></i>
+        </div>
+        <div class="mt-3" id="collapseExample" mdbCollapse #basicCollapse="mdbCollapse">
+          <h3 style="text-align: center; background-color: #edebe4;">List of books filtred by: {{filterTxt}}</h3>
+          <div class="books" style="    display: flex;
+          ">
+            <div class="feat-slider_book" style="    background-color: #edebe4;">
+              <div class="feat_hover_block" routerLink="/detail">View details</div>
+              <div class="fsb-img fsb-slide_two fsb-slide"></div>
+              <div class="fsb-name" style="    background-color: #edebe4;">Great travel at desert</div>
+              <div class="fsb-author" style="    background-color: #edebe4;">Sanchit Howdy</div>
+            </div>
+            <div class="feat-slider_book" style="    background-color: #edebe4;">
+              <div class="feat_hover_block" routerLink="/detail">View details</div>
+              <div class="fsb-img fsb-slide_two fsb-slide"></div>
+              <div class="fsb-name" style="    background-color: #edebe4;">Great travel at desert</div>
+              <div class="fsb-author" style="    background-color: #edebe4;">Sanchit Howdy</div>
+            </div>
+            <div class="feat-slider_book" style="    background-color: #edebe4;">
+              <div class="feat_hover_block" routerLink="/detail">View details</div>
+              <div class="fsb-img fsb-slide_two fsb-slide"></div>
+              <div class="fsb-name" style="    background-color: #edebe4;">Great travel at desert</div>
+              <div class="fsb-author" style="    background-color: #edebe4;">Sanchit Howdy</div>
+            </div>
+            <div class="feat-slider_book" style="    background-color: #edebe4;">
+              <div class="feat_hover_block" routerLink="/detail">View details</div>
+              <div class="fsb-img fsb-slide_two fsb-slide"></div>
+              <div class="fsb-name" style="    background-color: #edebe4;">Great travel at desert</div>
+              <div class="fsb-author" style="    background-color: #edebe4;">Sanchit Howdy</div>
+            </div>
+            <div class="feat-slider_book" style="    background-color: #edebe4;">
+              <div class="feat_hover_block" routerLink="/detail">View details</div>
+              <div class="fsb-img fsb-slide_two fsb-slide"></div>
+              <div class="fsb-name" style="    background-color: #edebe4;"> Great travel at desert</div>
+              <div class="fsb-author" style="    background-color: #edebe4;">Sanchit Howdy</div>
+            </div>
+          </div>
         </div>
     </div>
   </div>

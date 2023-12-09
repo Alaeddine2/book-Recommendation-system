@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('carouselEl', { static: true }) carousel!: MdbCarouselComponent;
 
   constructor() { }
-
+  filterTxt: any;
   ngOnInit(): void {
   }
   goToNextSlide() {

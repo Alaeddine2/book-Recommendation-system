@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(), // ToastrModule added
+    MdbCollapseModule
     //PDFViewerModule
   ],
   providers: [],

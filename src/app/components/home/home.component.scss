@@ -114,3 +114,9 @@
       transform: rotate(225deg);
     }
   }
+  .books{
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    background-color: #edebe4;
+  }
