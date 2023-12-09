@@ -17,6 +17,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
     DetailsComponent,
     BookReaderComponent,
     LoginComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
