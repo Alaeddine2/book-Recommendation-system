@@ -14,6 +14,8 @@ import {MdbCarouselModule} from "mdb-angular-ui-kit/carousel";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -31,9 +33,11 @@ import { ReviewsComponent } from './reviews/reviews.component';
     AppRoutingModule,
     PdfViewerModule,
     NgxExtendedPdfViewerModule,
+    BrowserAnimationsModule, // required animations module
     MdbCarouselModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(), // ToastrModule added
     //PDFViewerModule
   ],
   providers: [],

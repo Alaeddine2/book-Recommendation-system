@@ -1,5 +1,8 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,7 +25,7 @@ export class LoginComponent {
   });
   isLogin: boolean = true;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private toastr: ToastrService,private router: Router,) {
     this.createForms();
   }
 
@@ -45,8 +48,12 @@ export class LoginComponent {
 
   onLogin() {
     if (this.loginForm.valid) {
+      this.toastr.success('Login successful!', 'Toastr fun!');
+      this.router.navigate(['home']);
       console.log('Login successful', this.loginForm.value);
     } else {
+      this.toastr.error('Error!', 'Login form is not valid!');
+      this.router.navigate(['home']);
       console.log('Login form is not valid');
     }
   }

@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "15.2.10",
+    "@angular/animations": "^15.2.10",
     "@angular/cdk": "14.0.0",
     "@angular/common": "15.2.10",
     "@angular/compiler": "15.2.10",
@@ -23,6 +23,7 @@
     "mdb-angular-ui-kit": "git+https://oauth2:Cmbzj1NikJxDapcjxW33@git.mdbootstrap.com/mdb/angular/mdb5/prd/mdb5-angular-ui-kit-pro-essential#1.6.1",
     "ng2-pdf-viewer": "9.1.5",
     "ngx-extended-pdf-viewer": "^17.4.10",
+    "ngx-toastr": "^18.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
