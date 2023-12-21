@@ -7,6 +7,8 @@ import { BookReaderComponent } from './components/book-reader/book-reader.compon
 import {LoginComponent} from "./login/login.component";
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ContactComponent } from './contact/contact.component';
+import {AboutComponent} from "./about/about.component";
+import {FavoritComponent} from "./favorit/favorit.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'reader', component: BookReaderComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'favorites', component: FavoritComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: 'reviews', component: ReviewsComponent},
   { path: '**', component: HomeComponent }

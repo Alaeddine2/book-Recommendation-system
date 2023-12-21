@@ -18,6 +18,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { ContactComponent } from './contact/contact.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AboutComponent } from './about/about.component';
+import { FavoritComponent } from './favorit/favorit.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { ContactComponent } from './contact/contact.component';
     BookReaderComponent,
     LoginComponent,
     ReviewsComponent,
-    ContactComponent
+    ContactComponent,
+    NavbarComponent,
+    AboutComponent,
+    FavoritComponent
   ],
   imports: [
     BrowserModule,
