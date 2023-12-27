@@ -1886,3 +1886,8 @@ footer#footer {
     letter-spacing: 0.04em;
     color: #999999;
 }
+.menu-custom{
+  width: 820px !important;
+  display: flex;
+  align-items: center;
+}

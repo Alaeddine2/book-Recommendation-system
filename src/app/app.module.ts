@@ -18,6 +18,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { ContactComponent } from './contact/contact.component';
+import { SupportComponent } from './support/support.component';
+import { SupportService } from './support/support.service';
+import { HttpClientModule } from '@angular/common/http';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 
 
 @NgModule({
@@ -29,7 +33,8 @@ import { ContactComponent } from './contact/contact.component';
     BookReaderComponent,
     LoginComponent,
     ReviewsComponent,
-    ContactComponent
+    ContactComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +46,29 @@ import { ContactComponent } from './contact/contact.component';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(), // ToastrModule added
-    MdbCollapseModule
+    MdbCollapseModule,
+    HttpClientModule,
+    SocialLoginModule
     //PDFViewerModule
   ],
-  providers: [],
+  providers: [
+    SupportService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('638133119528-bjmjpq4omvs2ld2kg2vj444s1f3iuepl.apps.googleusercontent.com',{
+              discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
+              scope: 'https://www.googleapis.com/auth/drive.metadata.readonly',
+            }),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

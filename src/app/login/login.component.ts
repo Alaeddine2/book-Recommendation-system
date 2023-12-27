@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -10,6 +11,9 @@ import { ToastrService } from 'ngx-toastr';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class LoginComponent {
+  socialUser!: SocialUser;
+  isLoggedin?: boolean;
+  
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]]
@@ -25,8 +29,20 @@ export class LoginComponent {
   });
   isLogin: boolean = true;
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService,private router: Router,) {
+  constructor(private fb: FormBuilder, private toastr: ToastrService,private router: Router,
+    private socialAuthService: SocialAuthService  ) {
+      console.log('Constructor - socialAuthService:', this.socialAuthService);
     this.createForms();
+  }
+
+  ngOnInit() {
+    console.log('Constructor - socialAuthService:', this.socialAuthService);
+
+    this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      this.isLoggedin = user != null;
+      console.log(this.socialUser);
+    });
   }
 
   createForms() {
@@ -72,5 +88,17 @@ export class LoginComponent {
 
   showRegisterForm() {
     this.isLogin = false;
+  }
+
+  loginWithGoogle() {
+    if (this.socialAuthService.authState) {
+      // User is already authenticated, handle accordingly
+      console.log('User is already authenticated:', this.socialAuthService);
+    } else {
+      // User is not authenticated, initiate the sign-in process
+      this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+        .then(user => console.log('SignIn success:', user))
+        .catch(error => console.error('SignIn error:', error));
+    }
   }
 }

@@ -7,6 +7,7 @@ import { BookReaderComponent } from './components/book-reader/book-reader.compon
 import {LoginComponent} from "./login/login.component";
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ContactComponent } from './contact/contact.component';
+import { SupportComponent } from './support/support.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'reader', component: BookReaderComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
+  { path: 'support', component: SupportComponent },
   { path: 'reviews', component: ReviewsComponent},
   { path: '**', component: HomeComponent }
 ];

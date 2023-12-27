@@ -6,7 +6,7 @@
   
         </div>
         <a href="">BOOK<span>SAW</span></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo possimus est laudantium qui numquam incidunt repellendus, suscipit, quam dolores autem doloremque quia explicabo tenetur. Quo voluptatum, asperiores inventore? Est, minima!</p>
+        <p>Welcome to Our IA-Support system here you can discoust with an IT-bot to find what You want</p>
         <div class="left-area_photos">
           <div class="area_photos_block apb-1"></div>
           <div class="area_photos_block apb-2"></div>
@@ -49,7 +49,7 @@
   
       <div class="header container animate__animated animate__fadeInDown">
         <div class="logo-left"><a href="">BOOK<span>ITO</span></a></div>
-        <div class="menu-right menu-custom">
+        <div class="menu-right menu-custom" style="width: 950px;">
           <a routerLink="/home">Home</a>
           <a href="">About</a>
           <a href="">my favorites</a>
@@ -68,11 +68,40 @@
       </div>
       <section>
         <div class="ask container animate__animated animate__fadeIn" >
-        <h1 style="margin-bottom: 2%; text-align: center;">How can we help?</h1>
+        <h2 style="margin-bottom: 2%; margin-top: 4%; text-align: center;">Welcome to Our IA-Support system 
+        </h2>
+        <div class="input-group mb-3 " style="background-color: #ffffff; width: 100%; height: 550px;     border: 1px solid #D1D1D1;
+        border-radius: 4px;
+        box-shadow: none;
+        overflow: auto;
+        display: flex;
+        flex-direction: row-reverse;
+        box-sizing: border-box;">
+            <!-- chatbox -->
+            <div *ngFor="let message of tchats" class="chatLine">
+                <div *ngIf="message.type == 'bot'" class="chatbox">
+                    <div class="chatbox__support">
+                        <div class="chatbox__support__avatar" style="background-color: #ffffff; margin-right: 20px;">
+                            <img src="assets/img/bot.png" alt="" width="20px" height="10px">
+                        </div>
+                        <div class="chatbox__support__message" style="background-color: #ffffff;">
+                            <p style="background-color: #ffffff;" [ngClass]="{'typing-animation': message.isTyping}">{{message.messages}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="message.type == 'user'" class="chatbox_user" style="background-color: #ffffff;">
+                    <div class="chatbox__user" style="background-color: #ffffff;">
+                        <div class="chatbox__user__message" style="background-color: #ffffff;">
+                            <p style="background-color: #ffffff;">{{message.messages}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ask us" aria-label="Ask us" style="height: 65px;"
+            <input type="text" class="form-control" placeholder="Ask us" aria-label="Ask us" style="height: 65px;" [(ngModel)]="message"
               aria-describedby="button-addon2" />
-            <button class="button" type="button" name="button" style="    background-color: #f3f2ec; ">Send <img src="./img/arrow-read.svg" alt=""></button>
+            <button class="button" type="button" name="button" style="    background-color: #f3f2ec; " (click)="sendMessage()">Send <img src="./img/arrow-read.svg" alt=""></button>
 
         </div>
       </div>
