@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-details',
@@ -7,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
+
   rate = 3;
   ratingNb = 1555;
+
   ngOnInit(): void {
   }
 
+  downloadBook(): void {
+    const link = document.createElement('a');
+    link.href = 'assets/books/A-Game-of-Thrones.pdf';
+    link.download = 'A-Game-of-Thrones.pdf';
+    link.dispatchEvent(new MouseEvent('click'));
+  }
 }

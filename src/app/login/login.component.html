@@ -13,8 +13,8 @@
   <div id="logindiv" >
     <div *ngIf="isLogin">
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-        <p>Email or Phone</p>
-        <input formControlName="email" type="email" placeholder="Enter Your Email" autocomplete="on">
+        <p>Username</p>
+        <input formControlName="username" type="text" placeholder="Enter Your username" autocomplete="on">
         <p>Password</p>
         <input formControlName="password" type="password" placeholder="Enter Your Password" autocomplete="on">
         <p style="font-size:0.9em; color:#74642F">Forget password?</p>
@@ -50,24 +50,16 @@
     </div>
   <div *ngIf="!isLogin" >
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-      <p>First Name</p>
-      <input formControlName="firstName" type="text" placeholder="Enter Your First Name" autocomplete="on">
-
-      <p>Last Name</p>
-      <input formControlName="lastName" type="text" placeholder="Enter Your Last Name" autocomplete="on">
+      <p>UserName</p>
+      <input formControlName="username" type="text" placeholder="Enter Your username" autocomplete="on">
 
 
-      <p>Email</p>
-      <input formControlName="email" type="email" placeholder="Enter Your Email" autocomplete="on">
 
       <p>Password</p>
       <input formControlName="password" type="password" placeholder="Enter Your Password" autocomplete="on">
 
-      <p>Address</p>
-      <input formControlName="address" type="text" placeholder="Enter Your Address" autocomplete="on">
-
-      <p>City</p>
-      <input formControlName="city" type="text" placeholder="Enter Your City" autocomplete="on">
+      <p>Iamge url</p>
+      <input formControlName="image" type="text" placeholder="Enter Your image url" autocomplete="on">
 
       <input type="submit" value="REGISTER" [disabled]="!registerForm.valid">
     </form>

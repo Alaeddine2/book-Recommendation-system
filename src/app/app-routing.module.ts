@@ -8,18 +8,23 @@ import {LoginComponent} from "./login/login.component";
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ContactComponent } from './contact/contact.component';
 import { SupportComponent } from './support/support.component';
+import { AboutComponent } from './about/about.component';
+import { FavoritComponent } from './favorit/favorit.component';
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'all', component: AllProductComponent },
-  { path: 'detail', component: DetailsComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'all', component: AllProductComponent, canActivate: [AuthGuard] },
+  { path: 'detail', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'reader', component: BookReaderComponent },
-  { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  { path: 'support', component: SupportComponent },
-  { path: 'reviews', component: ReviewsComponent},
-  { path: '**', component: HomeComponent }
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
+  { path: 'reader', component: BookReaderComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
+  { path: 'favorites', component: FavoritComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'support', component: SupportComponent, canActivate: [AuthGuard] },
+  { path: 'reviews', component: ReviewsComponent, canActivate: [AuthGuard] },
+  { path: '**', component: HomeComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

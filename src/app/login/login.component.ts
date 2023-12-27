@@ -1,8 +1,10 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
-import { ToastrService } from 'ngx-toastr';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {GoogleLoginProvider, SocialAuthService, SocialUser} from 'angularx-social-login';
+import {ToastrService} from 'ngx-toastr';
+import {LoginService} from "./login.service";
+import {CsrfService} from "./csrf.service";
 
 @Component({
   selector: 'app-login',
@@ -13,25 +15,29 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent {
   socialUser!: SocialUser;
   isLoggedin?: boolean;
-  
+
   loginForm: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    username: ['', [Validators.required, Validators.minLength(2)]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
   registerForm: FormGroup = this.fb.group({
-    firstName: ['', [Validators.required, Validators.minLength(2)]],
-    lastName: ['', [Validators.required, Validators.minLength(2)]],
+    username: ['', [Validators.required, Validators.minLength(2)]],
+    image: ['', [Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
-    address: ['', [Validators.required]],
-    city: ['', [Validators.required]]
   });
   isLogin: boolean = true;
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService,private router: Router,
-    private socialAuthService: SocialAuthService  ) {
-      console.log('Constructor - socialAuthService:', this.socialAuthService);
+  constructor(
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private router: Router,
+    private socialAuthService: SocialAuthService,
+    private loginService: LoginService,
+    private csrfService: CsrfService
+  ) {
+    console.log('Constructor - socialAuthService:', this.socialAuthService);
     this.createForms();
   }
 
@@ -47,30 +53,68 @@ export class LoginComponent {
 
   createForms() {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.minLength(2)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
     this.registerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2)]],
-      lastName: ['', [Validators.required, Validators.minLength(2)]],
+      username: ['', [Validators.required, Validators.minLength(2)]],
+      image: ['', [Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      address: ['', [Validators.required]],
-      city: ['', [Validators.required]]
     });
   }
 
+
   onLogin() {
     if (this.loginForm.valid) {
-      this.toastr.success('Login successful!', 'Toastr fun!');
-      this.router.navigate(['home']);
-      console.log('Login successful', this.loginForm.value);
+      const { username, password } = this.loginForm.value;
+      this.loginService.login(username, password).subscribe(
+        (response) => {
+          const body = response.body;
+          if (body) {
+            console.log('Login successful', body);
+            this.toastr.success('Login successful!', 'Toastr fun!', {
+              positionClass: 'toast-top-right',
+              timeOut: 3000, // 3 seconds
+              closeButton: true,
+              progressBar: true,
+              progressAnimation: 'increasing'
+            });
+
+            if (body.token) {
+              localStorage.setItem('token', body.token);
+            }
+            if (body.data) {
+              localStorage.setItem('userData', JSON.stringify(body.data));
+            }
+
+            this.router.navigate(['home']);
+          } else {
+            console.error('Login response body is undefined');
+          }
+        },
+        (error) => {
+          console.error('Login error:', error);
+          this.toastr.error('Error!', 'Login failed!', {
+            positionClass: 'toast-top-right',
+            timeOut: 3000,
+            closeButton: true,
+            progressBar: true,
+            progressAnimation: 'increasing',
+            toastClass: 'ngx-toastr toast-error'
+          });
+        }
+      );
     } else {
-      this.toastr.error('Error!', 'Login form is not valid!');
-      this.router.navigate(['home']);
-      console.log('Login form is not valid');
+      this.toastr.error('Error!', 'Login form is not valid!', {
+        timeOut: 3000,
+        positionClass: 'toast-top-right',
+        closeButton: true,
+        progressBar: true,
+        progressAnimation: 'increasing',
+        toastClass: 'ngx-toastr'
+      });
     }
   }
 
@@ -91,14 +135,14 @@ export class LoginComponent {
   }
 
   loginWithGoogle() {
-    if (this.socialAuthService.authState) {
-      // User is already authenticated, handle accordingly
-      console.log('User is already authenticated:', this.socialAuthService);
-    } else {
-      // User is not authenticated, initiate the sign-in process
-      this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-        .then(user => console.log('SignIn success:', user))
-        .catch(error => console.error('SignIn error:', error));
-    }
+    // if (this.socialAuthService.authState) {
+    //   // User is already authenticated, handle accordingly
+    //   console.log('User is already authenticated:', this.socialAuthService);
+    // } else {
+    //   // User is not authenticated, initiate the sign-in process
+    //   this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+    //     .then(user => console.log('SignIn success:', user))
+    //     .catch(error => console.error('SignIn error:', error));
+    // }
   }
 }
