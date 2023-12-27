@@ -18,10 +18,16 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { ContactComponent } from './contact/contact.component';
+<<<<<<< HEAD
 import { SupportComponent } from './support/support.component';
 import { SupportService } from './support/support.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+=======
+import { NavbarComponent } from './navbar/navbar.component';
+import { AboutComponent } from './about/about.component';
+import { FavoritComponent } from './favorit/favorit.component';
+>>>>>>> 2db00a9490a2fbb3d974360403fe51a171bc3820
 
 
 @NgModule({
@@ -34,7 +40,13 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
     LoginComponent,
     ReviewsComponent,
     ContactComponent,
+<<<<<<< HEAD
     SupportComponent
+=======
+    NavbarComponent,
+    AboutComponent,
+    FavoritComponent
+>>>>>>> 2db00a9490a2fbb3d974360403fe51a171bc3820
   ],
   imports: [
     BrowserModule,

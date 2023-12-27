@@ -1,0 +1,10 @@
+<div class="header container animate__animated animate__fadeInDown">
+  <div class="logo-left"><a href="">BOOK<span>ITO</span></a></div>
+  <div class="menu-right">
+    <a [class.active_m]="currentRoute === '/home'" routerLink="/home">Home</a>
+    <a [class.active_m]="currentRoute === '/about'" routerLink="/about">About</a>
+    <a [class.active_m]="currentRoute === '/favorites'" routerLink="/favorites">My Favorites</a>
+    <a [class.active_m]="currentRoute === '/all'" routerLink="/all">All Books</a>
+    <a [class.active_m]="currentRoute === '/contact'" routerLink="/contact">Contact</a>
+  </div>
+</div>
