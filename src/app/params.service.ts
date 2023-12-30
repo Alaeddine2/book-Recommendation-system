@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, throwError} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 
@@ -9,17 +9,18 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class ParamsService {
   private paramsUrl = 'http://localhost:8000/app/params'; // Your API endpoint
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
-  getParams(): Observable<any> {
+  postParams(): Observable<any> {
+
     const csrfToken = localStorage.getItem('token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'X-CSRFToken': csrfToken || '',
-      })
-    };
+    // Set the headers
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-CSRFToken': csrfToken || ''
+    });
 
-    return this.http.post<any>(this.paramsUrl, {}, httpOptions);
+    return this.http.post<any>(this.paramsUrl, {}, {headers: headers});
   }
 }
