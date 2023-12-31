@@ -13,12 +13,13 @@ export class HomeComponent implements OnInit {
   genresList: any[] = [];
   currentGenre: string = 'All Genre';
   books: any[] = [];
+  searchResults: any[] = [];
+  filterTxt: string = '';
   @ViewChild('carouselEl', {static: true}) carousel!: MdbCarouselComponent;
 
   constructor(private paramsService: ParamsService, private homeService: HomeService) {
   }
 
-  filterTxt: any;
 
   ngOnInit() {
     this.paramsService.postParams().subscribe(
@@ -52,7 +53,22 @@ export class HomeComponent implements OnInit {
       );
     }
   }
-
+  searchBooks() {
+    if (!this.filterTxt) {
+      // If the search term is empty, clear the search results
+      this.searchResults = [];
+      return;
+    }
+    this.homeService.searchBooks(this.filterTxt).subscribe(
+      (response) => {
+        // Assuming the response has a property 'books' which is an array of book data
+        this.searchResults = response.data;
+      },
+      (error) => {
+        console.error('Error searching books:', error);
+      }
+    );
+  }
   goToPrevSlide() {
     this.carousel.prev();
   }

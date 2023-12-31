@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 
@@ -7,14 +7,20 @@ import {Observable} from "rxjs";
 })
 export class HomeService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getBooksByGenre(genre: string): Observable<any> {
-    const body = { genre: genre };
+    const body = {genre: genre};
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       // Add any other headers like 'Authorization' if needed
     });
-    return this.http.post<any>('http://localhost:8000/app/books/genre', body, { headers: headers });
+    return this.http.post<any>('http://localhost:8000/app/books/genre', body, {headers: headers});
+  }
+
+  searchBooks(userInput: string): Observable<any> {
+    const body = {user_input: userInput};
+    return this.http.post<any>("http://localhost:8000/app/api/search", body);
   }
 }
