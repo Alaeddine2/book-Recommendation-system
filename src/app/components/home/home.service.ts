@@ -29,4 +29,7 @@ export class HomeService {
     return this.http.post('http://localhost:8000/app/books/details', { book_id: +bookId });
   }
 
+  getBookReviews(bookId: number): Observable<any> {
+    return this.http.post<any>('http://localhost:8000/app/books/reviews', { book_id: bookId });
+  }
 }

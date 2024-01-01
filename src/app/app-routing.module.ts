@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'favorites', component: FavoritComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'support', component: SupportComponent, canActivate: [AuthGuard] },
-  { path: 'reviews', component: ReviewsComponent, canActivate: [AuthGuard] },
+  { path: 'reviews/:id', component: ReviewsComponent, canActivate: [AuthGuard] },
   { path: '**', component: HomeComponent, canActivate: [AuthGuard] }
 ];
 
