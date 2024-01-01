@@ -1,252 +1,210 @@
 <div>
-    <div class="top-content animate__animated animate__fadeIn">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="social-links">
-						<ul>
-							<li>
-								<a href="#"><i class="icon icon-facebook"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-twitter"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-youtube-play"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-behance-square"></i></a>
-							</li>
-						</ul>
-					</div><!--social-links-->
-				</div>
-				<div class="col-md-6">
-					<div class="right-element">
-						<a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
-					</div><!--top-right-->
-				</div>
-
-			</div>
-		</div>
-	</div><!--top-content-->
-
-	<header id="header">
-		<div class="container topmenu container animate__animated animate__fadeIn" >
-			<div class="row">
-
-				<div class="col-md-2">
-					<div class="main-logo">
-						<div class="logo-left"><a href="">BOOK<span>ITO</span></a></div>
-					</div>
-
-				</div>
-
-				<div class="col-md-10">
-
-					<nav id="navbar">
-						<div class="main-menu stellarnav">
-							<ul class="menu-list">
-								<li class="menu-item"><a routerLink="/home" data-effect="Home">Home</a></li>
-								<li class="menu-item"><a href="#about" class="nav-link" data-effect="About">About</a></li>
-
-								<li class="menu-item "><a href="#popular-books" class="nav-link" data-effect="Shop">my favorites</a></li>
-								<li class="menu-item"><a routerLink="/all" class="nav-link" data-effect="Articles">All books</a></li>
-								<li class="menu-item"><a routerLink="/contact" class="nav-link" data-effect="Contact">Contact</a></li>
-                                <li class="menu-item"><a routerLink="/support" class="nav-link" data-effect="support">Support</a></li>
-							</ul>
-
-							<div class="hamburger">
-				                <span class="bar"></span>
-				                <span class="bar"></span>
-				                <span class="bar"></span>
-				            </div>
-
-						</div>
-					</nav>
-
-				</div>
-
-			</div>
-		</div>
-	</header>
-
-    <section class="bg-sand padding-large wiper animate__animated animate__fadeIn animate__delay-1s">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-6">
-                    <a href="#" class="product-image"><img src="assets/images/main-banner2.jpg"></a>
-                </div>
-
-                <div class="col-md-6 pl-5">
-                    <div class="product-detail">
-                        <span style="color: #707070; font-weight: 400; font-size: 22px;">Fiction</span>
-                        <div style="display: flex; justify-items: baseline  ;">
-                            <h1 style="margin-top: 30px;">Birds Gonna Be Happy</h1>
-                            <span style="color: #707070; margin-top: 50px;">(122 pages)</span>
-                        </div>
-                        <h4 style="margin-top: 10px; " class="author">BY Hajimi no ippo</h4>
-                        <div style="display: flex; margin-top: 8%;">
-                            <div *ngFor="let item of [].constructor(rate);" style="margin-right: 2%;">
-                                <img src="assets/img/star-svgrepo-comr.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
-                            </div>
-                            <div *ngFor="let item of [].constructor(5-rate);" style="margin-right: 2%;">
-                                <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
-                            </div>
-                            <div style='color: #707070; font: 400 1.4rem/1.35714 "Proxima Nova", Montserrat, Arial, sans-serif;'>
-                                ({{ratingNb}} ratings)
-                            </div>
-                        </div>
-                        <p style="margin-top: 50px;">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat.
-                        </p>
-                        <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-
-                        <div style="display: flex; justify-content: space-between; margin-top: 40px;">
-                            <button type="submit" name="add-to-cart" value="27545" class="button">Like</button>
-                            <button class="button" type="button" name="button" style="    background-color: #f3f2ec; " routerLink="/reader">Online reader</button>
-                            <button class="button" type="button" name="button" style="    background-color: #f3f2ec; ">Save book <img src="assets/img/noun-bookmark-707133.svg" alt="" width="32" height="32"></button>
-                            <button class="button" type="button" (click)="downloadBook()" style="background-color: #f3f2ec;">Download</button>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="popularbook container">
-
-                <div class="popularbook-tabblock">
-                    <div class="tab_items" style="width: 200px;">
-                    <div class="tab__item js-tab_trigger tab__item-active" data-tab='1'>User Reviews</div>
-                    <div class="tab__item js-tab_trigger" data-tab='2'>Links</div>
-                    </div>
-
-                    <div class="book_items book_item_active js-tab_contant" data-tab='1'>
-                            <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 30px; flex-wrap: wrap;">
-                                <div class="box" style="width: 400px;  margin-bottom: 20px;">
-                                    <div class="Profile" style="justify-content: center;     background-color: #efeee8;">
-                                        <div class="profile-image" style="background-color: #efeee8;">
-                                            <img src="assets/images/team-member2.jpg">
-                                        </div>
-
-                                    </div>
-                                    <div class="Profile" style="margin-top: 20px; justify-content: center; background-color: #efeee8;">
-                                        <h3 class="gray-text" style="background-color: #efeee8;">John Doe</h3>
-                                    </div>
-                                    <div class="Profile" style="justify-content: center; background-color: #efeee8;">
-                                        <span class="gray-text" style="background-color: #efeee8;">2 days ago</span>
-                                    </div>
-                                    <div class="Profile" style="justify-content: center; margin-top: 10px; background-color: #efeee8;">
-                                        <div style="display: flex; background-color: #efeee8;">
-                                            <div *ngFor="let item of [].constructor(rate);" style="margin-right: 2%; background-color: #efeee8;">
-                                                <img src="assets/img/star-svgrepo-comr.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
-                                            </div>
-                                            <div *ngFor="let item of [].constructor(5-rate);" style="margin-right: 2%; background-color: #efeee8;">
-                                                <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Profile" style="margin-top: 20px; justify-content: center">
-                                        <p style="text-align: center; background-color: #efeee8;">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="box" style="width: 400px;  margin-bottom: 20px;">
-                                    <div class="Profile" style="justify-content: center;     background-color: #efeee8;">
-                                        <div class="profile-image" style="background-color: #efeee8;">
-                                            <img src="assets/images/team-member2.jpg">
-                                        </div>
-
-                                    </div>
-                                    <div class="Profile" style="margin-top: 20px; justify-content: center; background-color: #efeee8;">
-                                        <h3 class="gray-text" style="background-color: #efeee8;">John Doe</h3>
-                                    </div>
-                                    <div class="Profile" style="justify-content: center; background-color: #efeee8;">
-                                        <span class="gray-text" style="background-color: #efeee8;">2 days ago</span>
-                                    </div>
-                                    <div class="Profile" style="justify-content: center; margin-top: 10px; background-color: #efeee8;">
-                                        <div style="display: flex; background-color: #efeee8;">
-                                            <div *ngFor="let item of [].constructor(rate);" style="margin-right: 2%; background-color: #efeee8;">
-                                                <img src="assets/img/star-svgrepo-comr.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
-                                            </div>
-                                            <div *ngFor="let item of [].constructor(5-rate);" style="margin-right: 2%; background-color: #efeee8;">
-                                                <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Profile" style="margin-top: 20px; justify-content: center">
-                                        <p style="text-align: center; background-color: #efeee8;">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="box" style="width: 400px;  margin-bottom: 20px;">
-                                    <div class="Profile" style="justify-content: center;     background-color: #efeee8;">
-                                        <div class="profile-image" style="background-color: #efeee8;">
-                                            <img src="assets/images/team-member2.jpg">
-                                        </div>
-
-                                    </div>
-                                    <div class="Profile" style="margin-top: 20px; justify-content: center; background-color: #efeee8;">
-                                        <h3 class="gray-text" style="background-color: #efeee8;">John Doe</h3>
-                                    </div>
-                                    <div class="Profile" style="justify-content: center; background-color: #efeee8;">
-                                        <span class="gray-text" style="background-color: #efeee8;">2 days ago</span>
-                                    </div>
-                                    <div class="Profile" style="justify-content: center; margin-top: 10px; background-color: #efeee8;">
-                                        <div style="display: flex; background-color: #efeee8;">
-                                            <div *ngFor="let item of [].constructor(rate);" style="margin-right: 2%; background-color: #efeee8;">
-                                                <img src="assets/img/star-svgrepo-comr.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
-                                            </div>
-                                            <div *ngFor="let item of [].constructor(5-rate);" style="margin-right: 2%; background-color: #efeee8;">
-                                                <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star" width="28" height="28" style="margin-right: 2%;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Profile" style="margin-top: 20px; justify-content: center">
-                                        <p style="text-align: center; background-color: #efeee8;">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        </p>
-                                    </div>
-                                </div>
-                            <div class="book_item_active more_rev" routerLink="/reviews">
-                                More Reviews
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book_items book_item_active js-tab_contant" data-tab='2'>
-                        <div class="tab_items">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="top-content animate__animated animate__fadeIn">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="social-links">
+            <ul>
+              <li>
+                <a href="#"><i class="icon icon-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon icon-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon icon-youtube-play"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon icon-behance-square"></i></a>
+              </li>
+            </ul>
+          </div><!--social-links-->
         </div>
-    </section>
-
-
-    <footer id="footer">
-        <div class="container">
-            <div class="row" style="display: flex; justify-content: center;">
-                <div class="right-block" style="width: 250px;">Bouhajja Alaeddine<div class="rb_verticalline"></div></div>
-                <div class="right-block" style="width: 200px;">Hiba<div class="rb_verticalline"></div></div>
-                <div class="right-block" style="width: 200px;">Fedy<div class="rb_verticalline"></div></div>
-                <div class="right-block" style="width: 200px;">Slim<div class="rb_verticalline"></div></div>
-                <div class="right-block" style="width: 200px;">Hazem<div class="rb_verticalline"></div></div>
-                <div class="right-block" style="width: 200px;">Amjed<div class="rb_verticalline"></div></div>
-            </div>
+        <div class="col-md-6">
+          <div class="right-element">
+            <a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
+          </div><!--top-right-->
         </div>
-    </footer>
+
+      </div>
+    </div>
+  </div><!--top-content-->
+
+  <header id="header">
+    <div class="container topmenu container animate__animated animate__fadeIn">
+      <div class="row">
+
+        <div class="col-md-2">
+          <div class="main-logo">
+            <div class="logo-left"><a href="">BOOK<span>ITO</span></a></div>
+          </div>
+
+        </div>
+
+        <div class="col-md-10">
+
+          <nav id="navbar">
+            <div class="main-menu stellarnav">
+              <ul class="menu-list">
+                <li class="menu-item"><a routerLink="/home" data-effect="Home">Home</a></li>
+                <li class="menu-item"><a href="#about" class="nav-link" data-effect="About">About</a></li>
+
+                <li class="menu-item "><a href="#popular-books" class="nav-link" data-effect="Shop">my favorites</a>
+                </li>
+                <li class="menu-item"><a routerLink="/all" class="nav-link" data-effect="Articles">All books</a></li>
+                <li class="menu-item"><a routerLink="/contact" class="nav-link" data-effect="Contact">Contact</a></li>
+                <li class="menu-item"><a routerLink="/support" class="nav-link" data-effect="support">Support</a></li>
+              </ul>
+
+              <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+
+            </div>
+          </nav>
+
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-sand padding-large wiper animate__animated animate__fadeIn animate__delay-1s">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="#" class="product-image">
+            <img [src]="book?.image" alt="{{ book?.title }}">
+          </a>
+        </div>
+
+        <div class="col-md-6 pl-5">
+          <div class="product-detail">
+            <span style="color: #707070; font-weight: 400; font-size: 22px;">{{ book?.genre }}</span>
+            <div style="display: flex; justify-items: baseline;">
+              <h1 style="margin-top: 30px;">{{ book?.title }}</h1>
+              <span style="color: #707070; margin-top: 50px;">({{ book?.pages }} pages)</span>
+            </div>
+            <h4 style="margin-top: 10px;" class="author">BY {{ book?.author }}</h4>
+            <div style="display: flex; margin-top: 8%;">
+              <div *ngFor="let _ of getStarsArray(book?.ratings); let i = index" style="margin-right: 2%;">
+                <img src="assets/img/star-svgrepo-comr.svg" alt="star" class="star" width="28" height="28">
+              </div>
+              <div *ngFor="let _ of getEmptyStarsArray(book?.ratings); let i = index" style="margin-right: 2%;">
+                <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star" width="28" height="28">
+              </div>
+
+              <div style='color: #707070; font: 400 1.4rem/1.35714 "Proxima Nova", Montserrat, Arial, sans-serif;'>
+                ({{ book?.rating_nb }} ratings)
+              </div>
+            </div>
+            <p style="margin-top: 50px;">
+              {{ book?.description }}
+            </p>
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+              <button type="submit" name="add-to-cart" value="27545" class="button">Like</button>
+              <button class="button" type="button" name="button" style="background-color: #f3f2ec;"
+                      routerLink="/reader">Online reader
+              </button>
+              <button class="button" type="button" name="button" style="background-color: #f3f2ec;">Save book <img
+                src="assets/img/noun-bookmark-707133.svg" alt="" width="32" height="32"></button>
+              <button class="button" type="button" (click)="downloadBook()" style="background-color: #f3f2ec;">
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popularbook container">
+
+        <div class="popularbook-tabblock">
+          <div class="tab_items" style="width: 200px;">
+            <div class="tab__item js-tab_trigger tab__item-active" data-tab='1'>User Reviews</div>
+            <div class="tab__item js-tab_trigger" data-tab='2'>Links</div>
+          </div>
+
+          <div class="book_items book_item_active js-tab_contant" data-tab='1'>
+            <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 30px; flex-wrap: wrap;">
+
+
+              <div class="box" style="width: 400px; margin-bottom: 20px;" *ngFor="let review of reviews">
+                <div class="Profile" style="justify-content: center; background-color: #efeee8;">
+                  <div class="profile-image" style="background-color: #efeee8;">
+                    <!-- Update the image source to use the review image -->
+                    <img [src]="review.image" alt="{{ review.author }}" onerror="this.src='assets/images/team-member2.jpg';">
+                  </div>
+                </div>
+                <div class="Profile" style="margin-top: 20px; justify-content: center; background-color: #efeee8;">
+                  <!-- Update the author name -->
+                  <h3 class="gray-text" style="background-color: #efeee8;">{{ review.author }}</h3>
+                </div>
+                <div class="Profile" style="justify-content: center; background-color: #efeee8;">
+                  <!-- Assuming you have a date field in the review -->
+                  <span class="gray-text" style="background-color: #efeee8;">{{ review.date | date:'mediumDate' }}</span>
+                </div>
+                <div class="Profile" style="justify-content: center; margin-top: 10px; background-color: #efeee8;">
+                  <div style="display: flex; background-color: #efeee8;">
+                    <!-- Update the rating stars -->
+                    <div *ngFor="let item of [].constructor(review.rating);" style="margin-right: 2%;">
+                      <img src="assets/img/star-svgrepo-comr.svg" alt="star" class="star" width="28" height="28">
+                    </div>
+                    <div *ngFor="let item of [].constructor(5 - review.rating);" style="margin-right: 2%;">
+                      <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star" width="28" height="28">
+                    </div>
+                  </div>
+                </div>
+                <div class="Profile" style="margin-top: 20px; justify-content: center">
+                  <p style="text-align: center; background-color: #efeee8;">
+                    {{ review.showFullReview ? review.review : (review.review | slice:0:100) + '...' }}
+                  </p>
+                  <button class="show-more-button" (click)="review.showFullReview = !review.showFullReview">
+                    {{ review.showFullReview ? 'Less' : 'More' }}
+                  </button>
+                </div>
+              </div>
+
+              <div class="book_item_active more_rev" routerLink="/reviews">
+                More Reviews
+              </div>
+            </div>
+          </div>
+          <div class="book_items book_item_active js-tab_contant" data-tab='2'>
+            <div class="tab_items">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer id="footer">
+    <div class="container">
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="right-block" style="width: 250px;">Bouhajja Alaeddine
+          <div class="rb_verticalline"></div>
+        </div>
+        <div class="right-block" style="width: 200px;">Hiba
+          <div class="rb_verticalline"></div>
+        </div>
+        <div class="right-block" style="width: 200px;">Fedy
+          <div class="rb_verticalline"></div>
+        </div>
+        <div class="right-block" style="width: 200px;">Slim
+          <div class="rb_verticalline"></div>
+        </div>
+        <div class="right-block" style="width: 200px;">Hazem
+          <div class="rb_verticalline"></div>
+        </div>
+        <div class="right-block" style="width: 200px;">Amjed
+          <div class="rb_verticalline"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </div>

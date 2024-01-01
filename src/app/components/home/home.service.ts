@@ -23,4 +23,10 @@ export class HomeService {
     const body = {user_input: userInput};
     return this.http.post<any>("http://localhost:8000/app/api/search", body);
   }
+
+  getBookDetails(bookId: number): Observable<any> {
+    console.log(bookId);
+    return this.http.post('http://localhost:8000/app/books/details', { book_id: +bookId });
+  }
+
 }
