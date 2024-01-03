@@ -44,4 +44,22 @@ export class ParamsService {
 
       return '';
   }
+
+  // get recommendedBooks()
+  recommendedBooks(): Observable<any> {
+    const csrfTokenCockies = this.getCookie('csrftoken');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '' + csrfTokenCockies,
+        'Authorization': 'Bearer ' + csrfTokenCockies,
+      }),
+      // withCredentials: true,
+    };
+
+
+    return this.http.post<any>(this.paramsUrl, {}, httpOptions, );
+  }
+
 }

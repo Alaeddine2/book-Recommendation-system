@@ -55,11 +55,25 @@
       <div class="slider-arrow_left" style="margin-left: 10px; align-self: center;" (click)="goToPrevSlide()">
         <img src="assets/img/arrow-left.svg" alt="">
       </div>
+      <div *ngIf="!bestBooksDataRecieved">
+        <div class="slider_block" >  <!-- Slide one -->
+          <div class="slider_left">
+            <h1>Life Of The Wild</h1>
+            <p class="userNameId">We see Jesus, we believe in Jesus and we wait for Jesus, yet still we suffer. This book offers real and rugged answers in life’s dark places. Discover how to live with hope in a fallen, messed- up, "wild" world, and be encouraged.</p>
+            <button class="button" type="button" name="button" style="    background-color: #f3f2ec; ">Read more <img src="./img/arrow-read.svg" alt=""></button>
 
+            <div class="swiper-pagination1"></div>
+          </div>
+          <div class="slider_right">
+            <div class="bookimg b-slide_one"><div class="book-line"></div></div>
+            <div class="bgpattern"><img src="assets/img/bgpattern.png" alt=""></div>
+          </div>
+        </div>
+      </div>
       <mdb-carousel [controls]="false" [indicators]="false" [animation]="'fade'" #carouselEl
                     style="width: 100%;margin-left: 20px; margin-right: 20px;">
         <mdb-carousel-item *ngFor="let book of bestBooks">
-          <div class="slider_block">
+          <div class="slider_block"> 
             <div class="slider_left">
               <h1>{{ book.title }}</h1>
               <p class="userNameId">{{ book.description }}</p>

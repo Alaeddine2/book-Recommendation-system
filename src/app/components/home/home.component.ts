@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {MdbCarouselComponent} from 'mdb-angular-ui-kit/carousel';
 import {ParamsService} from "../../params.service";
 import {HomeService} from "./home.service";
@@ -15,9 +15,10 @@ export class HomeComponent implements OnInit {
   books: any[] = [];
   searchResults: any[] = [];
   filterTxt: string = '';
+  bestBooksDataRecieved: boolean = false;
   @ViewChild('carouselEl', {static: true}) carousel!: MdbCarouselComponent;
 
-  constructor(private paramsService: ParamsService, private homeService: HomeService) {
+  constructor(private paramsService: ParamsService, private homeService: HomeService,private CD : ChangeDetectorRef) {
   }
 
 
@@ -25,8 +26,10 @@ export class HomeComponent implements OnInit {
     this.paramsService.postParams().subscribe(
       (response) => {
         if (response && response.data && response.data.bestBooks) {
+          this.bestBooksDataRecieved = true;
           this.bestBooks = response.data.bestBooks;
           this.genresList = response.data.genresList;
+          this.CD.detectChanges();
         }
       },
       (error) => {
