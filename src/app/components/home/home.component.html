@@ -198,8 +198,46 @@
   <div class="featured container">
     <p>Some quality items</p>
     <div class="featured-name"><h2>Recommended Books</h2></div>
-
-    <div class="feat-slider featured1">
+    <div *ngIf="isRecommandedBooksAvailable" style=" display: flex; justify-content: space-between;">
+      <div *ngFor="let book of recommandedBooks" class="book_item">
+          <img [src]="book.image" alt="{{ book.title }}" class="book_cover_img fixed-dimensions">
+          <div class="feat_hover_block" routerLink="/detail/{{ book.book_id }}">View details</div>
+          <div class="bi-name">{{ book.title }}</div>
+          <div class="bi-author">{{ book.author }}</div>
+          <div class="fsb-price">{{ book.ratings}}</div>
+      </div>
+      
+      
+    </div>
+      <div class="spinner-container" *ngIf="!isRecommandedBooksAvailable">
+        <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status"  style="margin-right: 1%;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      
+    <!-- <mdb-carousel [controls]="false" [indicators]="false" [animation]="'fade'" #carouselE2>
+        <mdb-carousel-item *ngFor="let book of bestBooks">
+          
+            <div class="book_item">
+              <img [src]="book.image" alt="{{ book.title }}" class="book_cover_img fixed-dimensions">
+              <div class="feat_hover_block" routerLink="/detail/{{ book.book_id }}">View details</div>
+              <div class="bi-name">{{ book.title }}</div>
+              <div class="bi-author">{{ book.author }}</div>
+              <div class="fsb-price">0</div>
+            </div>
+          
+        </mdb-carousel-item>
+      </mdb-carousel> -->
+      <div class="swiper-pagination"></div>
+    <div class="viewproducts"><a routerLink="/all">View all products <img src="assets/img/arrow-right.svg" alt=""></a>
+    </div>
+    <!-- <div class="feat-slider featured1">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <div class="feat-slider_book">
@@ -273,8 +311,8 @@
       </div>
     </div>
     <div class="swiper-pagination"></div>
-    <div class="viewproducts"><a routerLink="/all">View all products <img src="assets/img/arrow-right.svg" alt=""></a>
-    </div>
+    <div class="viewproducts"><a routerLink="/all">View all products <img src="assets/img/arrow-right.svg" alt=""></a> -->
+    
   </div>
 
 

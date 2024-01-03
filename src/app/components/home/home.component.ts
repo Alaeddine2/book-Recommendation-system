@@ -14,9 +14,12 @@ export class HomeComponent implements OnInit {
   currentGenre: string = 'All Genre';
   books: any[] = [];
   searchResults: any[] = [];
+  recommandedBooks: any[] = [];
   filterTxt: string = '';
   bestBooksDataRecieved: boolean = false;
+  isRecommandedBooksAvailable: boolean = false;
   @ViewChild('carouselEl', {static: true}) carousel!: MdbCarouselComponent;
+  //@ViewChild('carouselE2', {static: true}) carousel2!: MdbCarouselComponent;
 
   constructor(private paramsService: ParamsService, private homeService: HomeService,private CD : ChangeDetectorRef) {
   }
@@ -29,6 +32,24 @@ export class HomeComponent implements OnInit {
           this.bestBooksDataRecieved = true;
           this.bestBooks = response.data.bestBooks;
           this.genresList = response.data.genresList;
+          this.CD.detectChanges();
+          this.carousel.next();
+          //this.carousel2.next();
+        }
+      },
+      (error) => {
+        console.error('Error fetching params', error);
+      }
+    );
+    this.paramsService.recommendedBooks().subscribe(
+      (response) => {
+        if (response && response.data) {
+          this.isRecommandedBooksAvailable = true;
+          this.recommandedBooks = response.data;
+          // get just 5 books
+          this.recommandedBooks = this.recommandedBooks.slice(0, 4);
+          console.log(this.recommandedBooks);
+          
           this.CD.detectChanges();
         }
       },

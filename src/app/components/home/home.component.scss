@@ -126,3 +126,12 @@
   height: 474px;
   object-fit: cover;
 }
+.spinner-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //height: 100%;
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}

@@ -8,6 +8,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class ParamsService {
   private paramsUrl = 'http://localhost:8000/app/params'; // Your API endpoint
+  private paramsUrlTwo = 'http://localhost:8000/app/api/recommandation';
 
   constructor(private http: HttpClient) {
   }
@@ -47,6 +48,12 @@ export class ParamsService {
 
   // get recommendedBooks()
   recommendedBooks(): Observable<any> {
+    // get user id from local storage
+    const userId = localStorage.getItem('userData')
+    ? JSON.parse(localStorage.getItem('userData') || '{}').id
+    : 0;
+    console.log('userId:', userId);
+    
     const csrfTokenCockies = this.getCookie('csrftoken');
 
     const httpOptions = {
@@ -59,7 +66,7 @@ export class ParamsService {
     };
 
 
-    return this.http.post<any>(this.paramsUrl, {}, httpOptions, );
+    return this.http.post<any>(this.paramsUrlTwo, {"user_id": 1}, httpOptions, );
   }
 
 }
