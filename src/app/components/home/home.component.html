@@ -327,7 +327,7 @@
       <div *ngIf="books.length > 0; else noBooksTemplate" class="book_items book_item_active">
         <div *ngFor="let book of books" class="book_item">
           <img [src]="book.image" alt="{{ book.title }}" class="book_cover_img fixed-dimensions">
-          <div class="feat_hover_block" routerLink="/detail/{{ book.id }}">View details</div>
+          <div class="feat_hover_block" routerLink="/detail/{{ book.book_id }}">View details</div>
           <div class="bi-name">{{ book.title }}</div>
           <div class="bi-author">{{ book.author }}</div>
           <div class="fsb-price">{{ book.price }}</div>

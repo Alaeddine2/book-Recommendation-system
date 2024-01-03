@@ -15,7 +15,7 @@ import {AuthGuard} from "./auth.guard";
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'all', component: AllProductComponent, canActivate: [AuthGuard] },
-  { path: 'detail', component: DetailsComponent, canActivate: [AuthGuard] },
+  { path: 'detail/:id', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
   { path: 'reader', component: BookReaderComponent, canActivate: [AuthGuard] },
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'favorites', component: FavoritComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'support', component: SupportComponent, canActivate: [AuthGuard] },
-  { path: 'reviews', component: ReviewsComponent, canActivate: [AuthGuard] },
+  { path: 'reviews/:id', component: ReviewsComponent, canActivate: [AuthGuard] },
   { path: '**', component: HomeComponent, canActivate: [AuthGuard] }
 ];
 
