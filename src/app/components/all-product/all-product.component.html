@@ -1,141 +1,142 @@
 <div id="header-wrap">
 
-	<div class="top-content">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="social-links">
-						<ul>
-							<li>
-								<a href="#"><i class="icon icon-facebook"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-twitter"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-youtube-play"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-behance-square"></i></a>
-							</li>
-						</ul>
-					</div><!--social-links-->
-				</div>
-				<div class="col-md-6">
-					<div class="right-element">
-						<a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
-					</div><!--top-right-->
-				</div>
+  <div class="top-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="social-links">
+            <ul>
+              <li>
+                <a href="#"><i class="icon icon-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon icon-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon icon-youtube-play"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon icon-behance-square"></i></a>
+              </li>
+            </ul>
+          </div><!--social-links-->
+        </div>
+        <div class="col-md-6">
+          <div class="right-element">
+            <a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
+          </div><!--top-right-->
+        </div>
 
-			</div>
-		</div>
-	</div><!--top-content-->
+      </div>
+    </div>
+  </div><!--top-content-->
 
   <app-navbar></app-navbar>
 
-<div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="colored">
-					<h1 class="page-title">ALL Books</h1>
-					<div class="breadcum-items">
-						<span class="item"><a href="index.html">Home /</a></span>
-						<span class="item colored">all books</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><!--site-banner-->
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="colored">
+            <h1 class="page-title">ALL Books</h1>
+            <div class="breadcum-items">
+              <span class="item"><a href="index.html">Home /</a></span>
+              <span class="item colored">all books</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--site-banner-->
 
-<section class="padding-large">
-	<div class="container">
-		<div class="row" *ngIf="isDataLoaded">
-			<!--call div in loop of books-->
-			<div *ngFor="let book of books" class="products-grid grid">
+  <section class="padding-large">
+    <div class="container">
+      <div class="row" *ngIf="isDataLoaded">
+        <!--call div in loop of books-->
+        <div *ngFor="let book of books" class="col-3">
 
-			  	<figure class="product-style">
-					<img  [src]="book.image" alt="{{ book.title }}" class="product-item">
-					<button type="button" class="add-to-cart" data-product-tile="add-to-cart">View details</button>
-					<figcaption>
-						<h3>{{book.title}}</h3>
-						<p>{{book.author}}</p>
-						<div class="item-price">{{book.ratings}}</div>
-					</figcaption>
-				</figure>
+          <figure class="product-style">
+            <img [src]="book.image" alt="{{ book.title }}" class="product-item">
+            <button type="button" class="add-to-cart" data-product-tile="add-to-cart"
+                    routerLink="/detail/{{ book.book_id }}">View details
+            </button>
+            <figcaption>
+              <h3>{{ book.title }}</h3>
+              <p>{{ book.author }}</p>
+              <div class="item-price">{{ book.ratings }}</div>
+            </figcaption>
+          </figure>
 
-	    	</div>
-			<div style="width: 100%; display: flex; justify-content: center;">
-				<nav aria-label="..." style="margin-top: 20px;">
-				  <ul class="pagination">
-					<li class="page-item">
-					  <span class="page-link" (click)="goPreviousPage()">Previous</span>
-					</li>
-			  
-					<li class="page-item" *ngFor="let page of displayedPages" [class.active]="page === currentPage">
-					  <span class="page-link" (click)="goToPage(page)">{{ page }}</span>
-					</li>
-			  
-					<li class="page-item">
-					  <span class="page-link" (click)="goNextPage()">Next</span>
-					</li>
-				  </ul>
-				</nav>
-			  </div>
-			
-		</div>
-		<div class="spinner-container" *ngIf="!isDataLoaded">
-			<div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
-			  <span class="visually-hidden">Loading...</span>
-			</div>
-			<div class="spinner-grow text-dark" role="status"  style="margin-right: 1%;">
-			  <span class="visually-hidden">Loading...</span>
-			</div>
-			<div class="spinner-grow text-dark" role="status">
-			  <span class="visually-hidden">Loading...</span>
-			</div>
-		  </div>
-	</div>
-</section>
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center;">
+          <nav aria-label="..." style="margin-top: 20px;">
+            <ul class="pagination">
+              <li class="page-item">
+                <span class="page-link" (click)="goPreviousPage()">Previous</span>
+              </li>
 
-<div id="footer-bottom">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
+              <li class="page-item" *ngFor="let page of displayedPages" [class.active]="page === currentPage">
+                <span class="page-link" (click)="goToPage(page)">{{ page }}</span>
+              </li>
 
-				<div class="copyright">
-					<div class="row">
+              <li class="page-item">
+                <span class="page-link" (click)="goNextPage()">Next</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+      <div class="spinner-container" *ngIf="!isDataLoaded">
+        <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="copyright">
+            <div class="row">
 
 
+              <div class="col-md-6">
+                <div class="social-links align-right">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="icon icon-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="icon icon-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="icon icon-youtube-play"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="icon icon-behance-square"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-						<div class="col-md-6">
-							<div class="social-links align-right">
-								<ul>
-									<li>
-										<a href="#"><i class="icon icon-facebook"></i></a>
-									</li>
-									<li>
-										<a href="#"><i class="icon icon-twitter"></i></a>
-									</li>
-									<li>
-										<a href="#"><i class="icon icon-youtube-play"></i></a>
-									</li>
-									<li>
-										<a href="#"><i class="icon icon-behance-square"></i></a>
-									</li>
-								</ul>
-							</div>
-						</div>
+            </div>
+          </div><!--grid-->
 
-					</div>
-				</div><!--grid-->
-
-			</div><!--footer-bottom-content-->
-		</div>
-	</div>
-</div>
-<script src="assets/js/modernizr.js"></script>
-<script src="assets/js/jquery-1.11.0.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/script.js"></script>
+        </div><!--footer-bottom-content-->
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/modernizr.js"></script>
+  <script src="assets/js/jquery-1.11.0.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/script.js"></script>
