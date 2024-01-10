@@ -53,7 +53,7 @@
 	<div class="container">
 		<div class="row" *ngIf="isDataLoaded">
 			<!--call div in loop of books-->
-			<div *ngFor="let book of books" class="products-grid grid">
+			<div *ngFor="let book of books" class="products-grid grid" >
 
 			  	<figure class="product-style">
 					<img  [src]="book.image" alt="{{ book.title }}" class="product-item">
