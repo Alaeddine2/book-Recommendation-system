@@ -47,11 +47,8 @@ export class ParamsService {
   }
 
   // get recommendedBooks()
-  recommendedBooks(): Observable<any> {
-    // get user id from local storage
-    const userId = localStorage.getItem('userData')
-    ? JSON.parse(localStorage.getItem('userData') || '{}').id
-    : 0;
+  recommendedBooks(userId: number | null): Observable<any> {
+
     console.log('userId:', userId);
 
     const csrfTokenCockies = this.getCookie('csrftoken');
@@ -66,7 +63,7 @@ export class ParamsService {
     };
 
 
-    return this.http.post<any>(this.paramsUrlTwo, {"user_id": 1}, httpOptions, );
+    return this.http.post<any>(this.paramsUrlTwo, {"user_id": userId}, httpOptions, );
   }
 
 }
