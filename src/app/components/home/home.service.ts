@@ -32,4 +32,18 @@ export class HomeService {
   getBookReviews(bookId: number): Observable<any> {
     return this.http.post<any>('http://localhost:8000/app/books/reviews', { book_id: bookId });
   }
+
+  saveBook(userId: number | null, bookId: number): Observable<any> {
+    const body = { user_id: userId, book_id: bookId };
+    return this.http.post<any>('http://localhost:8000/app/books/panel/add', body);
+  }
+
+  getFavoriteBooks(userId: number | null): Observable<any> {
+    return this.http.post<any>('http://localhost:8000/app/books/panel', { user_id: userId });
+  }
+
+  removeBookFromPanel(userId: number | null, bookId: number): Observable<any> {
+    return this.http.post<any>('http://localhost:8000/app/books/panel/remove', { user_id: userId, book_id: bookId });
+  }
+
 }

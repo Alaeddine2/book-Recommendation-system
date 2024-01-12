@@ -1,57 +1,55 @@
 <div>
-  <div class="header-side_area">
-    <div class="heder-line_area">
+  <app-top-nav-bar />
 
-      <div class="heder-area_one"></div>
-
-    </div>
-    <a href="">BOOK<span>SAW</span></a>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo possimus est laudantium qui numquam incidunt
-      repellendus, suscipit, quam dolores autem doloremque quia explicabo tenetur. Quo voluptatum, asperiores inventore?
-      Est, minima!</p>
-    <div class="left-area_photos">
-      <div class="area_photos_block apb-1"></div>
-      <div class="area_photos_block apb-2"></div>
-      <div class="area_photos_block apb-3"></div>
-      <div class="area_photos_block apb-4"></div>
-      <div class="area_photos_block apb-5"></div>
-      <div class="area_photos_block apb-6"></div>
-      <div class="area_photos_block apb-7"></div>
-      <div class="area_photos_block apb-8"></div>
-    </div>
-  </div>
-
-  <div class="header-side_areamenu">
-    <div>
-      <br>
-      <a class="active_m" href="">Home</a> <br><br>
-      <a href="">About</a> <br><br>
-      <a href="">Pages</a> <br><br>
-      <a href="">Shop</a> <br><br>
-      <a href="">Articles</a> <br><br>
-      <a routerLink="/all">Contact</a> <br><br>
-    </div>
-  </div>
-  <section>
-    <div class="topmenu container animate__animated animate__fadeIn">
-      <div class="social-left">
-        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-        <a href=""><i class="fa-brands fa-instagram"></i></a>
-        <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href=""><i class="fa-brands fa-twitter"></i></a>
-        <a href=""><i class="fa-brands fa-blogger-b"></i></a>
-
+  <app-navbar></app-navbar>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="colored">
+            <h1 class="page-title">Favorites Books</h1>
+            <div class="breadcum-items">
+              <span class="item"><a href="index.html">Home /</a></span>
+              <span class="item colored">Favorites</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="right-block" style="margin-left: 800px;">
-        <a class="rb_acc" href=""><i class="fa-regular fa-user"></i> ACCOUNT</a>
-        <div class="rb_verticalline"></div>
+    </div>
+  </div>
+
+  <section class="padding-large">
+    <div class="container">
+      <div class="row" *ngIf="isDataLoaded">
+        <div *ngFor="let book of favoriteBooks" class="col-md-4 col-sm-6 mb-4">
+
+          <div class="card book-card h-100">
+            <img [src]="book.book_image" alt="{{ book.book_title }}" class="book_cover_img fixed-dimensions">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ book.book_title }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ book.book_author }}</h6>
+              <div class="btn-container">
+                <a href="#" class="btn btn-primary" routerLink="/detail/{{ book.book }}">View details</a>
+                <button type="button" class="btn btn-danger" (click)="removeBook(book.book)">Remove Book</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="spinner-container" *ngIf="!isDataLoaded">
+        <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
     </div>
   </section>
-
-  <app-navbar></app-navbar>
-
-
 
 
   <footer>

@@ -1,75 +1,7 @@
 <div>
-  <div class="top-content animate__animated animate__fadeIn">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="social-links">
-            <ul>
-              <li>
-                <a href="#"><i class="icon icon-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="icon icon-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="icon icon-youtube-play"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="icon icon-behance-square"></i></a>
-              </li>
-            </ul>
-          </div><!--social-links-->
-        </div>
-        <div class="col-md-6">
-          <div class="right-element">
-            <a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
-          </div><!--top-right-->
-        </div>
+  <app-top-nav-bar />
 
-      </div>
-    </div>
-  </div><!--top-content-->
-
-  <header id="header">
-    <div class="container topmenu container animate__animated animate__fadeIn">
-      <div class="row">
-
-        <div class="col-md-2">
-          <div class="main-logo">
-            <div class="logo-left"><a href="">BOOK<span>ITO</span></a></div>
-          </div>
-
-        </div>
-
-        <div class="col-md-10">
-
-          <nav id="navbar">
-            <div class="main-menu stellarnav">
-              <ul class="menu-list">
-                <li class="menu-item"><a routerLink="/home" data-effect="Home">Home</a></li>
-                <li class="menu-item"><a href="#about" class="nav-link" data-effect="About">About</a></li>
-
-                <li class="menu-item "><a href="#popular-books" class="nav-link" data-effect="Shop">my favorites</a>
-                </li>
-                <li class="menu-item"><a routerLink="/all" class="nav-link" data-effect="Articles">All books</a></li>
-                <li class="menu-item"><a routerLink="/contact" class="nav-link" data-effect="Contact">Contact</a></li>
-                <li class="menu-item"><a routerLink="/support" class="nav-link" data-effect="support">Support</a></li>
-              </ul>
-
-              <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-              </div>
-
-            </div>
-          </nav>
-
-        </div>
-
-      </div>
-    </div>
-  </header>
+  <app-navbar></app-navbar>
 
   <section class="bg-sand padding-large wiper animate__animated animate__fadeIn animate__delay-1s">
     <div class="container">
@@ -108,8 +40,11 @@
               <button class="button" type="button" name="button" style="background-color: #f3f2ec;"
                       routerLink="/reader">Online reader
               </button>
-              <button class="button" type="button" name="button" style="background-color: #f3f2ec;">Save book <img
-                src="assets/img/noun-bookmark-707133.svg" alt="" width="32" height="32"></button>
+              <button class="button" (click)="bookExisteInPanel ? removeBook(book.book_id) : saveBook(book.book_id)" type="button" name="button" style="background-color: #f3f2ec;">
+                {{ bookExisteInPanel ? 'Remove Book' : 'Save Book' }}
+                <img src="assets/img/noun-bookmark-707133.svg" alt="" width="32" height="32">
+              </button>
+
               <button class="button" type="button" (click)="downloadBook()" style="background-color: #f3f2ec;">
                 Download
               </button>

@@ -25,6 +25,7 @@ import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'a
 import {NavbarComponent} from "./navbar/navbar.component";
 import {FavoritComponent} from "./favorit/favorit.component";
 import {AboutComponent} from "./about/about.component";
+import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import {AboutComponent} from "./about/about.component";
     NavbarComponent,
     AboutComponent,
     FavoritComponent,
+    TopNavBarComponent,
   ],
   imports: [
     BrowserModule,
