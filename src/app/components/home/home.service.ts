@@ -46,4 +46,11 @@ export class HomeService {
     return this.http.post<any>('http://localhost:8000/app/books/panel/remove', { user_id: userId, book_id: bookId });
   }
 
+  logout() {
+    return this.http.post('http://localhost:8000/app/logout', {});
+  }
+
+  downloadBook(bookId: number) {
+    return this.http.patch('http://localhost:8000/app/download/add', { book_id: bookId });
+  }
 }

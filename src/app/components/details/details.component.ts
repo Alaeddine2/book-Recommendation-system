@@ -46,11 +46,30 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  downloadBook(): void {
-    const link = document.createElement('a');
-    link.href = 'assets/books/A-Game-of-Thrones.pdf';
-    link.download = 'A-Game-of-Thrones.pdf';
-    link.dispatchEvent(new MouseEvent('click'));
+  downloadBook(bookId: number) {
+    this.homeService.downloadBook(bookId).subscribe({
+      next: (response: any) => {
+        if (response.status === '200' && response.data && response.data.book_url) {
+          const link = document.createElement('a');
+          link.href = 'assets/books/A-Game-of-Thrones.pdf';
+          link.download = 'A-Game-of-Thrones.pdf';
+          // link.href = response.data.book_url;
+          // link.download = response.data.title + '.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          this.toastr.success('Book downloaded successfully!');
+        } else {
+          console.error('Download failed:', response);
+          this.toastr.error('Failed to download the book.');
+        }
+      },
+      error: (error) => {
+        console.error('Error downloading the book:', error);
+        this.toastr.error('Error occurred while downloading the book.');
+      }
+    });
   }
 
   getStarsArray(rating: number): any[] {

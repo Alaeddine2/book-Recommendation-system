@@ -63,7 +63,4 @@ export class FavoritComponent implements OnInit {
     return -1;
   }
 
-  logout() {
-
-  }
 }
