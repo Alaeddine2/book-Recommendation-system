@@ -73,7 +73,7 @@
       <mdb-carousel [controls]="false" [indicators]="false" [animation]="'fade'" #carouselEl
                     style="width: 100%;margin-left: 20px; margin-right: 20px;">
         <mdb-carousel-item *ngFor="let book of bestBooks">
-          <div class="slider_block"> 
+          <div class="slider_block">
             <div class="slider_left">
               <h1>{{ book.title }}</h1>
               <p class="userNameId">{{ book.description }}</p>
@@ -178,7 +178,7 @@
         </h3>
         <div *ngIf="searchResults.length > 0; else noResultsTemplate" class="books" style="display: flex; flex-wrap: wrap;">
           <div *ngFor="let book of searchResults" class="feat-slider_book" style="background-color: #edebe4; margin: 10px;">
-            <a [routerLink]="'/detail/' + book.id">
+            <a [routerLink]="'/detail/' + book.book_id">
               <img [src]="book.image" alt="{{ book.title }}" class="book_cover_img fixed-dimensions" >
               <div class="feat_hover_block">View details</div>
             </a>
@@ -206,8 +206,8 @@
           <div class="bi-author">{{ book.author }}</div>
           <div class="fsb-price">{{ book.ratings}}</div>
       </div>
-      
-      
+
+
     </div>
       <div class="spinner-container" *ngIf="!isRecommandedBooksAvailable">
         <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
@@ -220,10 +220,10 @@
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-      
+
     <!-- <mdb-carousel [controls]="false" [indicators]="false" [animation]="'fade'" #carouselE2>
         <mdb-carousel-item *ngFor="let book of bestBooks">
-          
+
             <div class="book_item">
               <img [src]="book.image" alt="{{ book.title }}" class="book_cover_img fixed-dimensions">
               <div class="feat_hover_block" routerLink="/detail/{{ book.book_id }}">View details</div>
@@ -231,7 +231,7 @@
               <div class="bi-author">{{ book.author }}</div>
               <div class="fsb-price">0</div>
             </div>
-          
+
         </mdb-carousel-item>
       </mdb-carousel> -->
       <div class="swiper-pagination"></div>
@@ -312,7 +312,7 @@
     </div>
     <div class="swiper-pagination"></div>
     <div class="viewproducts"><a routerLink="/all">View all products <img src="assets/img/arrow-right.svg" alt=""></a> -->
-    
+
   </div>
 
 
@@ -349,11 +349,11 @@
         <div class="tab__item" (click)="selectGenre('Fiction')" [class.tab__item-active]="currentGenre === 'Fiction'">
           Fiction
         </div>
-        <div class="tab__item" (click)="selectGenre('Technology')"
-             [class.tab__item-active]="currentGenre === 'Technology'">Technology
+        <div class="tab__item" (click)="selectGenre('Animals')"
+             [class.tab__item-active]="currentGenre === 'Animals'">Animals
         </div>
-        <div class="tab__item" (click)="selectGenre('Classic')" [class.tab__item-active]="currentGenre === 'Classic'">
-          Classic
+        <div class="tab__item" (click)="selectGenre('Christianity')" [class.tab__item-active]="currentGenre === 'Christianity'">
+          Christianity
         </div>
         <div class="tab__item" (click)="selectGenre('Romantic')" [class.tab__item-active]="currentGenre === 'Romantic'">
           Romantic
