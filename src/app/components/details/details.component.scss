@@ -20,12 +20,15 @@
 .gray-text {
   color: #333; /* Adjust the color as needed */
   margin-bottom: 10px;
+  background-color: #e7e7e7;
 }
 
 .rating-stars {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  background-color: #efeee8;
+
 }
 
 .star {
@@ -37,16 +40,18 @@
 .review-text {
   text-align: center;
   margin-bottom: 10px;
+  background-color: #efeee8;
+
 }
 
 .show-more-button {
-  padding: 5px 15px;
+  padding: 8px 10px;
   font-size: 14px;
   font-weight: bold;
   color: #fff;
   background-color: #74642F;
   border: none;
-  border-radius: 20px;
+  border-radius: 8px;
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s;
