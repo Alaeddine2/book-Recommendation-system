@@ -25,5 +25,9 @@ export class LoginService {
     });
   }
 
+  registerUser(userData: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8000/app/logout', userData);
+  }
+
 
 }

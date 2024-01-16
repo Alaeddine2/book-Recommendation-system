@@ -7,7 +7,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ParamsService {
-  private paramsUrl = 'http://localhost:8000/app/params'; // Your API endpoint
+  private paramsUrl = 'http://localhost:8000/app/params';
   private paramsUrlTwo = 'http://localhost:8000/app/api/recommandation';
 
   constructor(private http: HttpClient) {
@@ -19,7 +19,7 @@ export class ParamsService {
     const csrfTokenCockies = this.getCookie('csrftoken');
     console.log('csrfToken:', csrfToken);
     console.log('csrfTokenCockies:', csrfTokenCockies);
-    
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -31,11 +31,11 @@ export class ParamsService {
 
     return this.http.post<any>(this.paramsUrl, {}, httpOptions, );
   }
-  
+
   private getCookie(name: string): string {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
-      
+
       if (parts.length === 2) {
           const cookieValue = parts.pop()?.split(';').shift();
           if (cookieValue) {
@@ -47,13 +47,10 @@ export class ParamsService {
   }
 
   // get recommendedBooks()
-  recommendedBooks(): Observable<any> {
-    // get user id from local storage
-    const userId = localStorage.getItem('userData')
-    ? JSON.parse(localStorage.getItem('userData') || '{}').id
-    : 0;
+  recommendedBooks(userId: number | null): Observable<any> {
+
     console.log('userId:', userId);
-    
+
     const csrfTokenCockies = this.getCookie('csrftoken');
 
     const httpOptions = {
@@ -66,7 +63,7 @@ export class ParamsService {
     };
 
 
-    return this.http.post<any>(this.paramsUrlTwo, {"user_id": 1}, httpOptions, );
+    return this.http.post<any>(this.paramsUrlTwo, {"user_id": userId}, httpOptions, );
   }
 
 }

@@ -1,75 +1,7 @@
 <div>
-  <div class="top-content animate__animated animate__fadeIn">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="social-links">
-            <ul>
-              <li>
-                <a href="#"><i class="icon icon-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="icon icon-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="icon icon-youtube-play"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="icon icon-behance-square"></i></a>
-              </li>
-            </ul>
-          </div><!--social-links-->
-        </div>
-        <div class="col-md-6">
-          <div class="right-element">
-            <a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
-          </div><!--top-right-->
-        </div>
+  <app-top-nav-bar />
 
-      </div>
-    </div>
-  </div><!--top-content-->
-
-  <header id="header">
-    <div class="container topmenu container animate__animated animate__fadeIn">
-      <div class="row">
-
-        <div class="col-md-2">
-          <div class="main-logo">
-            <div class="logo-left"><a href="">BOOK<span>ITO</span></a></div>
-          </div>
-
-        </div>
-
-        <div class="col-md-10">
-
-          <nav id="navbar">
-            <div class="main-menu stellarnav">
-              <ul class="menu-list">
-                <li class="menu-item"><a routerLink="/home" data-effect="Home">Home</a></li>
-                <li class="menu-item"><a href="#about" class="nav-link" data-effect="About">About</a></li>
-
-                <li class="menu-item "><a href="#popular-books" class="nav-link" data-effect="Shop">my favorites</a>
-                </li>
-                <li class="menu-item"><a routerLink="/all" class="nav-link" data-effect="Articles">All books</a></li>
-                <li class="menu-item"><a routerLink="/contact" class="nav-link" data-effect="Contact">Contact</a></li>
-                <li class="menu-item"><a routerLink="/support" class="nav-link" data-effect="support">Support</a></li>
-              </ul>
-
-              <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-              </div>
-
-            </div>
-          </nav>
-
-        </div>
-
-      </div>
-    </div>
-  </header>
+  <app-navbar></app-navbar>
 
   <section class="bg-sand padding-large wiper animate__animated animate__fadeIn animate__delay-1s">
     <div class="container">
@@ -108,11 +40,15 @@
               <button class="button" type="button" name="button" style="background-color: #f3f2ec;"
                       routerLink="/reader">Online reader
               </button>
-              <button class="button" type="button" name="button" style="background-color: #f3f2ec;">Save book <img
-                src="assets/img/noun-bookmark-707133.svg" alt="" width="32" height="32"></button>
-              <button class="button" type="button" (click)="downloadBook()" style="background-color: #f3f2ec;">
-                Download
+              <button class="button" (click)="bookExisteInPanel ? removeBook(book.book_id) : saveBook(book.book_id)" type="button" name="button" style="background-color: #f3f2ec;">
+                {{ bookExisteInPanel ? 'Remove Book' : 'Save Book' }}
+                <img src="assets/img/noun-bookmark-707133.svg" alt="" width="32" height="32">
               </button>
+
+              <button class="button" (click)="downloadBook(book.book_id)" style="background-color: #f3f2ec;">
+                Download Book
+              </button>
+
             </div>
           </div>
         </div>
@@ -130,41 +66,28 @@
             <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 30px; flex-wrap: wrap;">
 
 
-              <div class="box" style="width: 400px; margin-bottom: 20px;" *ngFor="let review of reviews">
-                <div class="Profile" style="justify-content: center; background-color: #efeee8;">
-                  <div class="profile-image" style="background-color: #efeee8;">
-                    <!-- Update the image source to use the review image -->
-                    <img [src]="review.image" alt="{{ review.author }}" onerror="this.src='assets/images/team-member2.jpg';">
+              <div class="box" *ngFor="let review of reviews">
+                <div class="profile-image">
+                  <img [src]="review.image" alt="{{ review.author }}" onerror="this.src='assets/images/team-member2.jpg';">
+                </div>
+                <h3 class="gray-text">{{ review.author }}</h3>
+                <span class="gray-text">{{ review.date | date:'mediumDate' }}</span>
+                <div class="rating-stars">
+                  <div *ngFor="let item of [].constructor(review.rating);">
+                    <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star">
+                  </div>
+                  <div *ngFor="let item of [].constructor(5 - review.rating);">
+                    <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star">
                   </div>
                 </div>
-                <div class="Profile" style="margin-top: 20px; justify-content: center; background-color: #efeee8;">
-                  <!-- Update the author name -->
-                  <h3 class="gray-text" style="background-color: #efeee8;">{{ review.author }}</h3>
-                </div>
-                <div class="Profile" style="justify-content: center; background-color: #efeee8;">
-                  <!-- Assuming you have a date field in the review -->
-                  <span class="gray-text" style="background-color: #efeee8;">{{ review.date | date:'mediumDate' }}</span>
-                </div>
-                <div class="Profile" style="justify-content: center; margin-top: 10px; background-color: #efeee8;">
-                  <div style="display: flex; background-color: #efeee8;">
-                    <!-- Update the rating stars -->
-                    <div *ngFor="let item of [].constructor(review.rating);" style="margin-right: 2%;">
-                      <img src="assets/img/star-svgrepo-comr.svg" alt="star" class="star" width="28" height="28">
-                    </div>
-                    <div *ngFor="let item of [].constructor(5 - review.rating);" style="margin-right: 2%;">
-                      <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star" width="28" height="28">
-                    </div>
-                  </div>
-                </div>
-                <div class="Profile" style="margin-top: 20px; justify-content: center">
-                  <p style="text-align: center; background-color: #efeee8;">
-                    {{ review.showFullReview ? review.review : (review.review | slice:0:100) + '...' }}
-                  </p>
-                  <button class="show-more-button" (click)="review.showFullReview = !review.showFullReview">
-                    {{ review.showFullReview ? 'Less' : 'More' }}
-                  </button>
-                </div>
+                <p class="review-text">
+                  {{ review.showFullReview ? review.review : (review.review | slice:0:100) + '...' }}
+                </p>
+                <button class="show-more-button" (click)="review.showFullReview = !review.showFullReview">
+                  {{ review.showFullReview ? 'Less' : 'More' }}
+                </button>
               </div>
+
 
               <div class="book_item_active more_rev" [routerLink]="'/reviews/' + book.book_id">
                 More Reviews

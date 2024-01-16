@@ -41,7 +41,8 @@ export class HomeComponent implements OnInit {
         console.error('Error fetching params', error);
       }
     );
-    this.paramsService.recommendedBooks().subscribe(
+    const userId = this.getCurrentUserId();
+    this.paramsService.recommendedBooks(userId).subscribe(
       (response) => {
         if (response && response.data) {
           this.isRecommandedBooksAvailable = true;
@@ -49,7 +50,7 @@ export class HomeComponent implements OnInit {
           // get just 5 books
           this.recommandedBooks = this.recommandedBooks.slice(0, 4);
           console.log(this.recommandedBooks);
-          
+
           this.CD.detectChanges();
         }
       },
@@ -96,5 +97,16 @@ export class HomeComponent implements OnInit {
   goToPrevSlide() {
     this.carousel.prev();
   }
-  ;
+  private getCurrentUserId(): number | null {
+    const userDataString = localStorage.getItem('userData');
+
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      console.log('userData:', userData.id);
+      return +userData.id;
+    }
+
+    return -1;
+  }
+
 }

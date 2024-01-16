@@ -22,10 +22,9 @@ export class LoginComponent {
   });
 
   registerForm: FormGroup = this.fb.group({
-    username: ['', [Validators.required, Validators.minLength(2)]],
-    image: ['', [Validators.minLength(2)]],
+    username: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
+    password: ['', [Validators.required]],
   });
   isLogin: boolean = true;
 
@@ -58,10 +57,9 @@ export class LoginComponent {
     });
 
     this.registerForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(2)]],
-      image: ['', [Validators.minLength(2)]],
+      username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required]],
     });
   }
 
@@ -118,14 +116,21 @@ export class LoginComponent {
     }
   }
 
-  onRegister() {
+  onRegister(): void {
+    console.log('onRegister - registerForm:', this.registerForm.value);
     if (this.registerForm.valid) {
-      console.log('Registration successful', this.registerForm.value);
-    } else {
-      console.log('Register form is not valid');
+      console.log('is valid');
+      this.loginService.registerUser(this.registerForm.value).subscribe({
+        next: (response) => {
+          this.toastr.success('Registration successful');
+        },
+        error: (error) => {
+          this.toastr.error('Registration failed');
+          console.error('Registration error:', error);
+        }
+      });
     }
   }
-
   showLoginForm() {
     this.isLogin = true;
   }
