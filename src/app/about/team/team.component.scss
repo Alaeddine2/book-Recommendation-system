@@ -1,0 +1,37 @@
+.allTeam {
+  font-family: Arial, sans-serif;
+  background-color: transparent !important;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+
+.team-member {
+  text-align: center;
+  margin: 2px;
+  background-color: rgba(20, 92, 158, 0) !important;
+}
+
+
+.team-member img {
+  border-radius: 50%;
+  width: 100%;
+  height: 75px;
+  object-fit: cover;
+}
+
+
+.member-name {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #6a0b0b;
+background-color: transparent;
+}
+
+.member-role {
+  color: #666;
+  border-radius: 0px 0px 30px 30px;
+}

@@ -26,6 +26,7 @@ import {NavbarComponent} from "./navbar/navbar.component";
 import {FavoritComponent} from "./favorit/favorit.component";
 import {AboutComponent} from "./about/about.component";
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
+import { TeamComponent } from './about/team/team.component';
 
 
 @NgModule({
@@ -43,6 +44,8 @@ import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
     AboutComponent,
     FavoritComponent,
     TopNavBarComponent,
+    TeamComponent,
+
   ],
   imports: [
     BrowserModule,
