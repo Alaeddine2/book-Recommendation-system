@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './components/home/home.component';
@@ -26,6 +25,7 @@ import {NavbarComponent} from "./navbar/navbar.component";
 import {FavoritComponent} from "./favorit/favorit.component";
 import {AboutComponent} from "./about/about.component";
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
+import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 
 
 @NgModule({
@@ -61,7 +61,8 @@ import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
     }), // ToastrModule added
     MdbCollapseModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    NgxInputStarRatingModule
     //PDFViewerModule
   ],
   providers: [

@@ -2,6 +2,8 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HomeService} from '../home/home.service';
 import {ToastrService} from "ngx-toastr";
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-details',
@@ -14,17 +16,26 @@ export class DetailsComponent implements OnInit {
   bookExisteInPanel: boolean = false;
   rate = 3;
   ratingNb = 1555;
-
+  form!: FormGroup;
+  bookId!: number;
+  //value: Observable<number>;
+  
   constructor(private route: ActivatedRoute,
               private homeService: HomeService,
               private changeDetectorRef: ChangeDetectorRef,
+              private formBuilder: FormBuilder,
               private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const bookId = params['id'];
+      this.bookId = bookId;
       this.fetchBookDetails(bookId);
+    });
+    this.form = this.formBuilder.group({
+      rating: [0],
+      review : ['']
     });
   }
 
@@ -34,7 +45,6 @@ export class DetailsComponent implements OnInit {
       console.log('API Response:', response); // Log for debugging
       this.book = response.data.book;
       this.bookExisteInPanel = response.data.book_existe_in_panel;
-      console.log('bookExisteInPanel:', response.data.book_exists_in_panel);
 
       this.reviews = response.data.reviews.map((review: any) => ({
         ...review,
@@ -130,5 +140,35 @@ export class DetailsComponent implements OnInit {
     });
 
   }
+
+  rateBook(){
+    // display the rating from the form
+    console.log(this.form.value.rating);
+    console.log(this.form.value.review);
+    // call the service to save the user reveiw
+    const userId = this.getCurrentUserId();
+    console.log('userId:', userId);
+    console.log('bookId:', this.bookId);
+    this.homeService.rateBook(userId!, this.bookId, this.form.value.rating, this.form.value.review).subscribe({
+      next: (data) => {
+        this.toastr.success('Book rated successfully');
+        //this.fetchBookDetails(this.bookId);
+        this.reviews.unshift({
+          rating: this.form.value.rating,
+          review: this.form.value.review,
+          showFullReview: false,
+          author: "you",
+          image: "assets/img/149071.png"
+        });
+        this.form.reset();
+        this.changeDetectorRef.detectChanges();
+      },
+      error: error => {
+        this.toastr.error('Failed to rate the book');
+        console.error('Error rating book:', error);
+      }
+    });
+  }
+  
 }
 

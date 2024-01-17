@@ -50,19 +50,20 @@
 
             </div>
             <div style="margin-top: 20px;">
+              <form [formGroup]="form" (ngSubmit)="rateBook()">
+              
               <!--add new review               [(ngModel)]="message"
 -->
               <div style="margin-bottom: 10px;">
-                <div *ngFor="let _ of getEmptyStarsArray(book?.ratings); let i = index" style="margin-right: 2%;">
-                  <img src="assets/img/star-svgrepo-com.svg" alt="star" class="star" width="28" height="28">
-                </div>
+                <ngx-input-star-rating formControlName="rating" style="color: gold;"></ngx-input-star-rating>
               </div>
-              <input type="text" class="form-control" placeholder="add new review" aria-label="Ask us" style="height: 150px;" aria-describedby="button-addon2"/>
+              <input type="text" class="form-control" formControlName="review" placeholder="add new review" aria-label="Ask us" style="height: 150px;" aria-describedby="button-addon2"/>
               <div style="display: flex; justify-content: space-between; margin-top: 15px;">
-                <button type="submit" name="add-to-cart" value="27545" class="button">Like</button>
+                <button type="submit" name="add-to-cart" value="27545" class="button">Send review</button>
                 <button class="button" type="button" name="button" style="background-color: #f3f2ec;">Clear
               </button>
               </div>
+            </form>
             </div>
           </div>
         </div>
@@ -103,6 +104,9 @@
               </div>
 
 
+             
+            </div>
+            <div style="width: 100%; display: flex; justify-content: center;">
               <div class="book_item_active more_rev" [routerLink]="'/reviews/' + book.book_id">
                 More Reviews
               </div>

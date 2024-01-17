@@ -53,4 +53,8 @@ export class HomeService {
   downloadBook(bookId: number) {
     return this.http.patch('http://localhost:8000/app/download/add', { book_id: bookId });
   }
+
+  rateBook(user_id: number, bookId: number, rating: number, review: string) {
+    return this.http.post('http://localhost:8000/app/books/reviews/add', { user_id: user_id, book_id: bookId, rating: rating + '', review: review });
+  }
 }
