@@ -11,6 +11,7 @@ import { SupportComponent } from './support/support.component';
 import { AboutComponent } from './about/about.component';
 import { FavoritComponent } from './favorit/favorit.component';
 import {AuthGuard} from "./auth.guard";
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'support', component: SupportComponent, canActivate: [AuthGuard] },
   { path: 'reviews/:id', component: ReviewsComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: '**', component: HomeComponent, canActivate: [AuthGuard] }
 ];
 

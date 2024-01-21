@@ -1,0 +1,140 @@
+<div>
+    <app-top-nav-bar />
+
+  <app-navbar></app-navbar>
+
+  <section class="bg-sand padding-large wiper animate__animated animate__fadeIn animate__delay-1s" style="margin-top: -70px;">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="best-month-book">
+                <div class="row">
+                    <div class="col-md-9 card-content-book">
+                        <div class="card-content-book">
+                            <h3 class="card-content-book">TRENDING BOOK THIS MONTH</h3>
+                            <p class="card-content-book">
+                                Game of thrones - the story of fire and ice
+                            </p>
+                            <button class="button" type="button" name="button" style="background-color: rgb(223, 91, 223); margin-top: 2%;"
+                                routerLink="">Read Now
+                        </button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 card-content-book">
+                        <div class="card-content-book">
+                            <img src="assets/img/book-3d.png" alt="" class="card-content-book">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 1%;">
+                <div class="card-header">
+                    <h4>Top authors books</h4>
+                </div>
+                <div class="card-content" style="background-color: white;">
+                    <div class="chart-big-container">
+                        <canvas  id="MyChart" >{{ chart }}</canvas>
+                    </div>
+                </div>
+            </div>            
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Reading Analytics</h4>
+                </div>
+                <div class="card-content">
+                    <div class="statistics-cards"  style="margin-top: 6%;">
+                        <div class="statistics-card-image">
+                            <img src="assets/img/book.png" alt="" class="card-content-book">
+                        </div>
+                        <div class="statistics-panel">
+                            <div class="statistics-value">
+                                <p style="margin-bottom: 0px;  background-color: white;" [countUp]="9854" [duration]="3000">
+                                    9854
+                                </p>
+                            </div>
+                            <div class="statistics-title">
+                                <p style="margin-bottom: 0px; background-color: white;">
+                                    Total books
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statistics-cards">
+                        <div class="statistics-card-image">
+                            <img src="assets/img/down.png" alt="" class="card-content-book">
+                        </div>
+                        <div class="statistics-panel">
+                            <div class="statistics-value">
+                                <p style="margin-bottom: 0px;  background-color: white;" [countUp]="65" [duration]="3000">
+                                    65
+                                </p>
+                            </div>
+                            <div class="statistics-title">
+                                <p style="margin-bottom: 0px; background-color: white;">
+                                    Download books
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statistics-cards">
+                        <div class="statistics-card-image">
+                            <img src="assets/img/team.png" alt="" class="card-content-book">
+                        </div>
+                        <div class="statistics-panel">
+                            <div class="statistics-value">
+                                <p style="margin-bottom: 0px;  background-color: white;" [countUp]="65" [duration]="3000">
+                                    65
+                                </p>
+                            </div>
+                            <div class="statistics-title">
+                                <p style="margin-bottom: 0px; background-color: white;">
+                                    Totals Users
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statistics-cards">
+                        <div class="statistics-card-image">
+                            <img src="assets/img/research.png" alt="" class="card-content-book">
+                        </div>
+                        <div class="statistics-panel">
+                            <div class="statistics-value">
+                                <p style="margin-bottom: 0px;  background-color: white;" [countUp]="65" [duration]="3000">
+                                    65
+                                </p>
+                            </div>
+                            <div class="statistics-title">
+                                <p style="margin-bottom: 0px; background-color: white;">
+                                    Total Reviews
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statistics-cards"  style="margin-bottom: 10%;">
+                        <div class="statistics-card-image">
+                            <img src="assets/img/bookmark_892347.png" alt="" class="card-content-book">
+                        </div>
+                        <div class="statistics-panel">
+                            <div class="statistics-value">
+                                <p style="margin-bottom: 0px;  background-color: white;" [countUp]="65" [duration]="3000">
+                                    65
+                                </p>
+                            </div>
+                            <div class="statistics-title">
+                                <p style="margin-bottom: 0px; background-color: white;">
+                                    Total Saves
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+    
+</div>

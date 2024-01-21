@@ -26,6 +26,9 @@ import {FavoritComponent} from "./favorit/favorit.component";
 import {AboutComponent} from "./about/about.component";
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NumberCounter } from './components/counter/counter';
+import { CountUpDirective } from './count-up.directive';
 
 
 @NgModule({
@@ -43,6 +46,9 @@ import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
     AboutComponent,
     FavoritComponent,
     TopNavBarComponent,
+    DashboardComponent,
+    NumberCounter,
+    CountUpDirective
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,8 @@ import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
     MdbCollapseModule,
     HttpClientModule,
     SocialLoginModule,
-    NgxInputStarRatingModule
+    NgxInputStarRatingModule,
+    
     //PDFViewerModule
   ],
   providers: [

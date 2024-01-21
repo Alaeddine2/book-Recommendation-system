@@ -41,11 +41,13 @@ export class DetailsComponent implements OnInit {
 
   fetchBookDetails(bookId: number): void {
     // Call your API service here
-    this.homeService.getBookDetails(bookId).subscribe(response => {
+    let userId = this.getCurrentUserId();
+    this.homeService.getBookDetails(bookId, userId).subscribe(response => {
       console.log('API Response:', response); // Log for debugging
       this.book = response.data.book;
-      this.bookExisteInPanel = response.data.book_existe_in_panel;
-
+      this.bookExisteInPanel = response.data.book_exists_in_panel;
+      console.log('bookExisteInPanel:', this.bookExisteInPanel);
+      
       this.reviews = response.data.reviews.map((review: any) => ({
         ...review,
         showFullReview: false
@@ -93,8 +95,6 @@ export class DetailsComponent implements OnInit {
   saveBook(bookId: number): void {
 
     const userId = this.getCurrentUserId();
-    console.log('userId:', userId);
-    console.log('bookId:', bookId);
     this.homeService.saveBook(userId, bookId).subscribe({
 
 
@@ -103,6 +103,9 @@ export class DetailsComponent implements OnInit {
           this.toastr.error('Book already in the panel');
         } else {
           this.toastr.success('Book saved successfully');
+          this.bookExisteInPanel = true;
+          this.changeDetectorRef.detectChanges();
+
         }
       },
       error: (error) => {
@@ -131,7 +134,9 @@ export class DetailsComponent implements OnInit {
     this.homeService.removeBookFromPanel(userId, bookId).subscribe({
       next: () => {
         this.toastr.success('Book removed from panel');
-        this.fetchBookDetails(bookId);
+        //this.fetchBookDetails(bookId);
+        this.bookExisteInPanel = false;
+        this.changeDetectorRef.detectChanges();
       },
       error: error => {
         this.toastr.error('Failed to remove the book');
