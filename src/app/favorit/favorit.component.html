@@ -1,5 +1,5 @@
 <div>
-  <app-top-nav-bar />
+  <app-top-nav-bar/>
 
   <app-navbar></app-navbar>
   <div>
@@ -18,39 +18,35 @@
     </div>
   </div>
 
-  <section class="padding-large">
+  <section class="favorite-books-section" style="margin-top: 10px;">
     <div class="container">
-      <div class="row" *ngIf="isDataLoaded">
-        <div *ngFor="let book of favoriteBooks" class="col-md-4 col-sm-6 mb-4">
-
-          <div class="card book-card h-100">
-            <img [src]="book.book_image" alt="{{ book.book_title }}" class="book_cover_img fixed-dimensions">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">{{ book.book_title }}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{ book.book_author }}</h6>
-              <div class="btn-container">
-                <a href="#" class="btn btn-primary" routerLink="/detail/{{ book.book }}">View details</a>
-                <button type="button" class="btn btn-danger" (click)="removeBook(book.book)">Remove Book</button>
-              </div>
+      <div class="row">
+        <div *ngFor="let book of favoriteBooks" class="col-lg-3 col-md-4 col-sm-6 book-col">
+          <div class="book-card">
+            <img [src]="book.book_image" alt="{{ book.book_title }}" class="book-cover">
+            <div class="book-info">
+              <h5 class="book-title">{{ book.book_title }}</h5>
+              <p class="book-author">{{ book.book_author }}</p>
+            </div>
+            <div class="book-favorite" (click)="removeBook(book.book)">
+              <span class="favorite-star">&#9733;</span> <!-- Star character -->
             </div>
           </div>
-
-        </div>
-      </div>
-      <div class="spinner-container" *ngIf="!isDataLoaded">
-        <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-dark" role="status">
-          <span class="visually-hidden">Loading...</span>
         </div>
       </div>
     </div>
   </section>
-
+  <div class="spinner-container" *ngIf="!isDataLoaded">
+    <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-dark" role="status" style="margin-right: 1%;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-dark" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
 
   <footer>
     <div class="footer container">
