@@ -27,7 +27,6 @@ import {FavoritComponent} from "./favorit/favorit.component";
 import {AboutComponent} from "./about/about.component";
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
