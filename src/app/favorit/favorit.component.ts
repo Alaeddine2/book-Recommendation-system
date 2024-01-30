@@ -37,6 +37,7 @@ export class FavoritComponent implements OnInit {
   }
 
   removeBook(bookId: number) {
+    console.log('Removing book with id:', bookId);
     const userId = this.getCurrentUserId();
 
     this.homeService.removeBookFromPanel(userId, bookId).subscribe({
@@ -63,7 +64,4 @@ export class FavoritComponent implements OnInit {
     return -1;
   }
 
-  logout() {
-
-  }
 }

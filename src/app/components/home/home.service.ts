@@ -24,9 +24,8 @@ export class HomeService {
     return this.http.post<any>("http://localhost:8000/app/api/search", body);
   }
 
-  getBookDetails(bookId: number): Observable<any> {
-    console.log(bookId);
-    return this.http.post('http://localhost:8000/app/books/details', { book_id: +bookId });
+  getBookDetails(bookId: number, userId: number | null): Observable<any> {
+    return this.http.post('http://localhost:8000/app/books/details', { book_id: +bookId, user_id: userId });
   }
 
   getBookReviews(bookId: number): Observable<any> {
@@ -46,4 +45,15 @@ export class HomeService {
     return this.http.post<any>('http://localhost:8000/app/books/panel/remove', { user_id: userId, book_id: bookId });
   }
 
+  logout() {
+    return this.http.post('http://localhost:8000/app/logout', {});
+  }
+
+  downloadBook(bookId: number) {
+    return this.http.patch('http://localhost:8000/app/download/add', { book_id: bookId });
+  }
+
+  rateBook(user_id: number, bookId: number, rating: number, review: string) {
+    return this.http.post('http://localhost:8000/app/books/reviews/add', { user_id: user_id, book_id: bookId, rating: rating + '', review: review });
+  }
 }

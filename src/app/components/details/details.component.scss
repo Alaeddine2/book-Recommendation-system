@@ -1,34 +1,86 @@
-.author{
-    lex-basis: auto;
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.box {
+  width: 400px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #efeee8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.box{
-    padding: 50px;
-    border-radius: 15px;
-    background-color: #efeee8;
+.profile-image img {
+  width: 80px; /* Adjust as needed */
+  height: 80px; /* Adjust as needed */
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
-.more_rev{
-    margin: auto;
-    font-size: 16px;
-    font-weight: 600;
-    border-bottom: solid 3px green;
-    cursor: pointer;
+.gray-text {
+  color: #333; /* Adjust the color as needed */
+  margin-bottom: 10px;
+  background-color: #e7e7e7;
 }
 
-.more_rev :hover{
-    font-size: 17px;
-    border-bottom: solid 3px #efeee8;
-    cursor: pointer;
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  background-color: #efeee8;
+
+}
+
+.star {
+  margin-right: 2%;
+  width: 28px;
+  height: 28px;
+}
+
+.review-text {
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: #efeee8;
+
 }
 
 .show-more-button {
-  background: none;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #74642F;
   border: none;
-  color: blue; /* example color */
+  border-radius: 8px;
   cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.show-more-button:hover {
+  background-color: #5d4a2c;
+}
+
+
+.more_rev {
+  display: inline-block; /* Allows the border to wrap the text */
+  padding: 5px 10px; /* Adds some padding around the text */
+  margin: 20px auto; /* Centers the link and adds space */
+  font-size: 18px; /* Adjusts font size */
+  font-weight: bold; /* Makes the font weight bold */
+  color: #74642F; /* Sets the text color */
+  border-radius: 20px; /* Rounds the corners */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  text-decoration: none; /* Removes underline from link */
+  background-color: #ffffff; /* Sets background color */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adds a subtle shadow */
+  border: 2px solid transparent; /* Hides the border by default */
+}
+
+.more_rev:hover {
+  color: #ffffff; /* Changes text color on hover */
+  background-color: #74642F; /* Changes background color on hover */
+  border: 2px solid #74642F; /* Adds a border on hover */
+  text-decoration: none; /* Ensures text is not underlined on hover */
+  transform: scale(1.05); /* Slightly enlarges the link on hover */
 }
