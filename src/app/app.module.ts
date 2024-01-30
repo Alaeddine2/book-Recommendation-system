@@ -30,7 +30,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NumberCounter } from './components/counter/counter';
 import { CountUpDirective } from './count-up.directive';
 
-
 @NgModule({
   declarations: [
     AppComponent,
