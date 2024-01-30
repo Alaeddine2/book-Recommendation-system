@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit,AfterViewInit{
     private toastr: ToastrService,
     private router: Router,
     private loginService: LoginService,
-    private csrfService: CsrfService
+    private csrfService: CsrfService,
   ) {
     console.log('Constructor - socialAuthService:');
     this.createForms();
@@ -39,20 +39,23 @@ export class LoginComponent implements OnInit,AfterViewInit{
 
   ngAfterViewInit(): void {
     console.log(document.getElementById('google_btn'))
-    google.accounts.id.initialize({
-      client_id:'7217142055-a5v88qjgt7fl8ejabirqtvduk3o6pmhb.apps.googleusercontent.com',
-      callback:(resp:any)=>{
-        this.handleLogin(resp)
-      },
+    setTimeout(()=>{
+      google.accounts.id.initialize({
+        client_id:'7217142055-a5v88qjgt7fl8ejabirqtvduk3o6pmhb.apps.googleusercontent.com',
+        callback:(resp:any)=>{
+          this.handleLogin(resp)
+        },
 
-    });
-    google.accounts.id.renderButton(document.getElementById('google_btn'), {
-      theme: 'filled_blue',
-      size: 'large',
-      shape: 'rectangle',
-      width: 350,
-      click_listener: this.onClickHandler
-    });
+      });
+      google.accounts.id.renderButton(document.getElementById('google_btn'), {
+        theme: 'filled_blue',
+        size: 'large',
+        shape: 'rectangle',
+        width: 350,
+        click_listener: this.onClickHandler
+      });
+    },1)
+
   }
 
   decodeToken(token:string){
