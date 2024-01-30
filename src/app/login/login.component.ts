@@ -1,17 +1,19 @@
-declare var google :any;
-import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {GoogleLoginProvider, SocialAuthService, SocialUser} from 'angularx-social-login';
 import {ToastrService} from 'ngx-toastr';
 import {LoginService} from "./login.service";
 import {CsrfService} from "./csrf.service";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.ShadowDom
 })
-export class LoginComponent implements OnInit,AfterViewInit{
+export class LoginComponent {
+  socialUser!: SocialUser;
   isLoggedin?: boolean;
 
   loginForm: FormGroup = this.fb.group({
@@ -30,63 +32,24 @@ export class LoginComponent implements OnInit,AfterViewInit{
     private fb: FormBuilder,
     private toastr: ToastrService,
     private router: Router,
+    private socialAuthService: SocialAuthService,
     private loginService: LoginService,
     private csrfService: CsrfService
   ) {
-    console.log('Constructor - socialAuthService:');
+    console.log('Constructor - socialAuthService:', this.socialAuthService);
     this.createForms();
   }
 
-  ngAfterViewInit(): void {
-   console.log(document.getElementById('google_btn'))
-    google.accounts.id.initialize({
-      client_id:'7217142055-a5v88qjgt7fl8ejabirqtvduk3o6pmhb.apps.googleusercontent.com',
-      callback:(resp:any)=>{
-        this.handleLogin(resp)
-      },
-
-    });
-    google.accounts.id.renderButton(document.getElementById('google_btn'), {
-      theme: 'filled_blue',
-      size: 'large',
-      shape: 'rectangle',
-      width: 350,
-      click_listener: this.onClickHandler
-    });
-    }
-
-    decodeToken(token:string){
-    return JSON.parse(atob(token.split(".")[1]))
-    }
-handleLogin(response:any){
-    console.log(response)
-    if(response){
-      const payload = this.decodeToken(response.credential)
-      localStorage.setItem('token', response.credential);
-      payload['username'] = payload.name
-      localStorage.setItem('userData', JSON.stringify(payload));
-      this.router.navigate(['home']);
-    }
-}
   ngOnInit() {
-    // console.log('Constructor - socialAuthService:', this.socialAuthService);
-    //
-    // this.socialAuthService.authState.subscribe((user) => {
-    //   this.socialUser = user;
-    //   this.isLoggedin = user != null;
-    //   console.log(this.socialUser);
-    // });
-//google authentication
+    console.log('Constructor - socialAuthService:', this.socialAuthService);
 
-
-
-
-
+    this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      this.isLoggedin = user != null;
+      console.log(this.socialUser);
+    });
   }
 
-   onClickHandler(){
-    console.log("Sign in with Google button clicked...")
-  }
   createForms() {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(2)]],
@@ -170,15 +133,6 @@ handleLogin(response:any){
   }
   showLoginForm() {
     this.isLogin = true;
-   setTimeout(()=>{
-     google.accounts.id.renderButton(document.getElementById('google_btn'), {
-       theme: 'filled_blue',
-       size: 'large',
-       shape: 'rectangle',
-       width: 350,
-       click_listener: this.onClickHandler
-     },1);
-   })
   }
 
   showRegisterForm() {

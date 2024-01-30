@@ -1,6 +1,8 @@
+* {
+  background-color: #F3F2EC;
+}
 
-
-.form-group{
+.form-group{ 
   position: relative;
   display: block;
     margin: 0;
@@ -858,6 +860,7 @@ a.active_m {
   font-size: 48px;
   line-height: 65px;
   color: #111111;
+  background-color: #F3F2EC;
   position: relative;
   max-width: 530px;
   margin: auto;
